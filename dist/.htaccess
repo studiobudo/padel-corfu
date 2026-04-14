@@ -1,0 +1,20 @@
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>
+
+# Cache des assets statiques
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresDefault "access plus 1 month"
+</IfModule>
+
+# MIME types
+AddType image/svg+xml .svg
+AddType application/font-woff2 .woff2
+
+# Sécurité
+Header always set X-Frame-Options "DENY"
+Header always set X-Content-Type-Options "nosniff"

@@ -22,7 +22,7 @@ jobs:
           protocol: ftp
           security: loose
           local-dir: ./dist/
-          server-dir: /
+          server-dir: /domains/padel-corfu.com/public_html/
           timeout: 60000
           exclude: |
             **/.git*

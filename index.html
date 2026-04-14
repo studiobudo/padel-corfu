@@ -312,6 +312,7 @@ textarea.form-input{resize:vertical;min-height:80px}
 /* LANDING PAGE */
 .landing-hero{position:relative;height:60vh;min-height:340px;max-height:520px;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .landing-hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.landing-hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .landing-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,31,20,0.2) 0%,rgba(10,31,20,0.75) 100%)}
 .landing-hero__content{position:relative;z-index:1;text-align:center;padding:24px 20px;display:flex;flex-direction:column;align-items:center}
 .landing-hero__logo{height:110px;width:auto;margin-bottom:16px;filter:drop-shadow(0 4px 20px rgba(0,0,0,0.6))}
@@ -437,7 +438,9 @@ textarea.form-input{resize:vertical;min-height:80px}
 <!-- PAGE: LANDING -->
 <section class="page active" id="page-landing">
 <div class="landing-hero">
-<img src="img/Padel-teasing 2026-Cover.jpg" class="landing-hero__bg" alt="Padel Academy Corfu 2026">
+<video class="landing-hero__video" autoplay muted loop playsinline poster="img/Padel-teasing 2026-Cover.jpg">
+<source src="img/hero.mp4" type="video/mp4">
+</video>
 <div class="landing-hero__overlay"></div>
 <div class="landing-hero__content">
 <img src="img/LOGO WHITE CORFU PADEL ACADEMY.svg" class="landing-hero__logo" alt="Padel Academy Corfu">

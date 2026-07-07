@@ -4,6 +4,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vols directs vers Corfou 2026 — Kerkyra Work & Play</title>
+<!-- SEO -->
+<meta name="description" content="Vols directs vers Corfou 2026 au départ de France, Belgique, Luxembourg et Suisse : recherche par ville et par jour, avec carte interactive, aéroport CFU.">
+<meta name="keywords" content="vols directs Corfou, vol Corfou 2026, flights to Corfu 2026, aéroport CFU, vol direct Corfou France, vol Corfou Belgique, vol Corfou Luxembourg, vol Corfou Suisse, Kerkyra Work & Play, aéroport Ioannis Kapodistrias, réserver vol Corfou">
+<meta name="author" content="Kerkyra Work & Play">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#028a95">
+<link rel="canonical" href="https://vols.kerkyra.fr/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23028a95'/%3E%3Ctext x='32' y='45' font-family='Arial,Helvetica,sans-serif' font-size='34' font-weight='700' fill='%23e0b128' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kerkyra Work & Play">
+<meta property="og:title" content="Vols directs vers Corfou 2026 — Kerkyra Work & Play">
+<meta property="og:description" content="Vols directs vers Corfou 2026 au départ de France, Belgique, Luxembourg et Suisse : recherche par ville et par jour, avec carte interactive, aéroport CFU.">
+<meta property="og:url" content="https://vols.kerkyra.fr/">
+<meta property="og:image" content="https://vols.kerkyra.fr/img/hero.jpg">
+<meta property="og:image:alt" content="Vols directs vers Corfou 2026 — Kerkyra Work & Play">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="el_GR">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vols directs vers Corfou 2026 — Kerkyra Work & Play">
+<meta name="twitter:description" content="Vols directs vers Corfou 2026 au départ de France, Belgique, Luxembourg et Suisse : recherche par ville et par jour, avec carte interactive, aéroport CFU.">
+<meta name="twitter:image" content="https://vols.kerkyra.fr/img/hero.jpg">
+<!-- Données structurées JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TravelAgency",
+      "name": "Kerkyra Work & Play",
+      "url": "https://kerkyra.fr",
+      "email": "hello@kerkyra.fr",
+      "areaServed": "Corfu / Kerkyra, Greece",
+      "description": "Kerkyra Work & Play est une agence réceptive (DMC) basée à Corfou, spécialisée dans l'organisation de séjours, d'activités et de services sur l'île pour les voyageurs venus de France, Belgique, Luxembourg et Suisse."
+    },
+    {
+      "@type": "WebSite",
+      "name": "Vols directs vers Corfou 2026",
+      "url": "https://vols.kerkyra.fr",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Kerkyra Work & Play"
+      }
+    }
+  ]
+}
+</script>
 <style>
   :root{--teal:#028a95;--teal-d:#045a63;--teal-x:#033f47;--gold:#e0b128;--gold-d:#c2971a;
         --cream:#F6F1E7;--ink:#1c2b2e;--muted:#6b7b7f;--line:#dbe6e8;--sea:#1f7f8f}
@@ -14,8 +63,10 @@
 
   .topbar{background:#fff;border-bottom:1px solid var(--line)}
   .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px}
-  .logo{display:flex;align-items:center}
-  .logo svg{height:44px;width:auto;display:block}
+  .logo{display:flex;align-items:center;text-decoration:none;transition:opacity .15s}
+  .logo:hover{opacity:.82}
+  .logo svg{height:62px;width:auto;display:block}
+  @media(max-width:720px){.logo svg{height:50px}}
   .topright{display:flex;align-items:center;gap:14px}
   .langsw{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
   .langsw button{border:none;background:#fff;color:var(--muted);font-weight:700;font-size:12.5px;padding:7px 12px;cursor:pointer;letter-spacing:.04em}
@@ -23,9 +74,12 @@
   .topcta{background:var(--gold);color:#3a2c06;font-weight:800;border:none;border-radius:999px;padding:10px 18px;font-size:14px;cursor:pointer;text-decoration:none;white-space:nowrap}
   .topcta:hover{background:var(--gold-d);color:#fff}
 
-  .hero{position:relative;color:#fff;overflow:hidden}
-  .hero .art{display:block;width:100%;height:auto}
-  .hero .overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 7%}
+  .hero{position:relative;color:#fff;overflow:hidden;min-height:250px;display:flex;
+        background-color:var(--teal-x);
+        background-image:linear-gradient(115deg,rgba(3,63,71,.74),rgba(3,63,71,.30)),url("img/hero.jpg");
+        background-size:cover;background-position:center;background-repeat:no-repeat}
+  @media(max-width:720px){.hero{min-height:210px}}
+  .hero .overlay{position:relative;display:flex;flex-direction:column;justify-content:center;padding:32px 7%;width:100%}
   .hero .brandline{font-size:12px;letter-spacing:.24em;font-weight:700;color:#ffe6b0}
   .hero h1{margin:8px 0 8px;font-size:38px;line-height:1.1;max-width:640px;text-shadow:0 2px 16px rgba(0,35,42,.5)}
   .hero p{margin:0;max-width:520px;font-size:17px;color:#eef7f8;text-shadow:0 1px 10px rgba(0,35,42,.55)}
@@ -195,7 +249,7 @@
 
 <div class="topbar">
   <div class="wrap">
-    <div class="logo"><svg preserveAspectRatio="xMinYMid meet" id="Calque_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1770.96 645.14">
+    <a class="logo" href="https://kerkyra.fr" target="_blank" rel="noopener" aria-label="Kerkyra Work & Play — site officiel"><svg preserveAspectRatio="xMinYMid meet" id="Calque_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1770.96 645.14">
   <defs>
     <style>
       .cls-1 {
@@ -243,7 +297,7 @@
     <path class="cls-2" d="M1105.98,438.53h6.86l17.21,47.32h-6.02l-3.52-9.67h-22.21l-3.48,9.67h-6.05l17.21-47.32ZM1100.4,470.5h18.02l-9.02-24.71-8.99,24.71Z"/>
     <path class="cls-2" d="M1167.16,438.53h6.69l-16.02,25.93v21.4h-5.68v-21.4l-16.03-25.93h6.69l12.17,19.71,12.17-19.71Z"/>
   </g>
-</svg></div>
+</svg></a>
     <div class="topright">
       <div class="langsw" id="langsw">
         <button data-lang="fr" class="on">FR</button><button data-lang="en">EN</button><button data-lang="el">ΕΛ</button>
@@ -255,38 +309,6 @@
 
 <!-- HERO -->
 <section class="hero">
-  <svg class="art" viewBox="0 0 1200 430" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Avion décollant au-dessus d'une église de Corfou">
-    <defs>
-      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#FBD786"/><stop offset="0.35" stop-color="#F0A94A"/>
-        <stop offset="0.62" stop-color="#6FB2BD" /><stop offset="1" stop-color="#045a63"/>
-      </linearGradient>
-      <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#128193"/><stop offset="1" stop-color="#033f47"/></linearGradient>
-      <radialGradient id="sunG" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#FFF3D0"/><stop offset="0.5" stop-color="#FFD877"/><stop offset="1" stop-color="#F6B44B" stop-opacity="0"/></radialGradient>
-      <linearGradient id="shade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#04343b" stop-opacity="0.5"/><stop offset="0.55" stop-color="#04343b" stop-opacity="0"/></linearGradient>
-    </defs>
-    <rect width="1200" height="430" fill="url(#sky)"/>
-    <circle cx="930" cy="150" r="150" fill="url(#sunG)"/><circle cx="930" cy="150" r="60" fill="#FFE7B0"/>
-    <path d="M0 300 Q180 250 380 288 T760 280 T1200 292 V300 Z" fill="#5aa2ad" opacity=".55"/>
-    <rect y="300" width="1200" height="130" fill="url(#seaG)"/>
-    <g opacity=".5" stroke="#Bfe6ec" stroke-width="2"><line x1="760" y1="330" x2="1080" y2="330"/><line x1="800" y1="352" x2="1040" y2="352"/><line x1="840" y1="374" x2="1010" y2="374"/></g>
-    <g transform="translate(150,196)">
-      <ellipse cx="90" cy="118" rx="150" ry="26" fill="#0a4e57"/>
-      <path d="M8 118 Q30 70 70 66 Q120 40 175 66 Q210 78 220 118 Z" fill="#3E7B6E"/>
-      <path d="M40 96 q6 -34 12 0 z" fill="#245646"/><path d="M56 100 q5 -28 10 0 z" fill="#245646"/>
-      <rect x="96" y="48" width="70" height="70" fill="#FBF6EC"/><rect x="96" y="48" width="70" height="70" fill="none" stroke="#E7DcC6" stroke-width="1.5"/>
-      <rect x="150" y="20" width="22" height="98" fill="#FBF6EC"/><rect x="150" y="44" width="22" height="10" fill="#045a63" opacity=".18"/><rect x="154" y="60" width="14" height="18" rx="7" fill="#045a63" opacity=".25"/>
-      <path d="M148 20 q13 -20 26 0 z" fill="#C0492E"/><path d="M161 4 v-9 M156 -6 h10" stroke="#e0b128" stroke-width="2.4"/>
-      <rect x="122" y="88" width="18" height="30" rx="9" fill="#045a63" opacity=".28"/>
-    </g>
-    <g transform="translate(500,120) rotate(-20)" stroke="#ffffff" stroke-linecap="round" opacity=".65" stroke-dasharray="1 14" stroke-width="3.4"><line x1="-210" y1="18" x2="-6" y2="4"/></g>
-    <g transform="translate(500,120) rotate(-20) scale(1.25)">
-      <path d="M0 1 L2 1 L14 3 L40 3 L30 16 L40 16 L48 3 L70 3 Q86 6 96 2 Q86 -6 70 -4 L0 -1 Z" fill="#0f3138"/>
-      <path d="M56 -3 L64 -19 L70 -19 L62 -2 Z" fill="#0f3138"/><path d="M58 -2 L74 -17 L80 -17 L66 -1 Z" fill="#0a262c"/>
-      <circle cx="86" cy="-1" r="1.6" fill="#cfe6ea"/>
-    </g>
-    <rect width="1200" height="430" fill="url(#shade)"/>
-  </svg>
   <div class="overlay">
     <div class="brandline" data-i18n="brandline"></div>
     <h1 data-i18n="title"></h1>
@@ -342,8 +364,8 @@
 </main>
 
 <footer>
-  <div class="fbrand"><b>KERKYRA</b><span>WORK &amp; PLAY</span></div>
-  <span data-i18n="footer1"></span> · <a href="mailto:michael@boudot.me">michael@boudot.me</a><br>
+  <div class="fbrand"><a href="https://kerkyra.fr" target="_blank" rel="noopener" style="color:inherit;text-decoration:none"><b>KERKYRA</b><span>WORK &amp; PLAY</span></a></div>
+  <a href="https://kerkyra.fr" target="_blank" rel="noopener" style="font-weight:700" data-i18n="footer1"></a> · <a href="mailto:hello@kerkyra.fr">hello@kerkyra.fr</a><br>
   <span data-i18n="footer2"></span>
 </footer>
 
@@ -391,9 +413,9 @@ const MAP=[
 const PAYS={France:{fr:"France",en:"France",el:"Γαλλία"},Belgique:{fr:"Belgique",en:"Belgium",el:"Βέλγιο"},Luxembourg:{fr:"Luxembourg",en:"Luxembourg",el:"Λουξεμβούργο"},Suisse:{fr:"Suisse",en:"Switzerland",el:"Ελβετία"}};
 
 const T={
- fr:{brandline:"KERKYRA WORK & PLAY · CORFOU",title:"Vols directs vers Corfou — Saison 2026",heroSub:"Trouvez la meilleure liaison directe vers l'île, depuis la France, la Belgique, le Luxembourg et la Suisse.",heroKicker:"15 villes de départ · direct · avril → novembre",sectionTitle:"Choisissez votre ville de départ",sectionSub:"Cliquez une ville sur la carte, ou utilisez les filtres ci-dessous.",filterVille:"Par ville de départ",filterJour:"Par jour de voyage",allVilles:"Toutes les villes",allJours:"Tous les jours",parisCombo:"Paris (CDG + Orly)",reset:"Réinitialiser",countOne:"{n} liaison trouvée",countMany:"{n} liaisons trouvées",outTag:"Aller",retTag:"Retour",dDays:"Jours :",dTime:"Horaire :",labelAirline:"Compagnie(s)",labelSeason:"Saison",labelDur:"Durée",priceFrom:"À partir de {p} l'aller-retour",footnote:"Jours, horaires et prix indicatifs (saison 2026), à confirmer sur les moteurs des compagnies. Prix « dès » en aller-retour, hors bagage soute.",mapHint:"🗺️ Chaque point = une ville reliée à Corfou en direct. Cliquez pour filtrer.",cFrance:"FRANCE",cBelgique:"BELGIQUE",cSuisse:"SUISSE",corfouPin:"CORFOU ✈",ctaTitle:"Envie de vivre Corfou autrement ?",ctaText:"De l'hébergement de caractère aux activités sur-mesure, séminaires et séjours de groupe — dites-nous votre envie, on compose votre séjour et votre devis.",ctaBtn:"Recevoir mon devis Corfou ✦",topCta:"Demander un devis ✦",gateTitle:"Votre guide des vols 2026",gateText:"Laissez votre e-mail pour accéder à l'outil de recherche des vols directs vers Corfou (France, Belgique, Luxembourg, Suisse).",gatePh:"votre@email.com",gateBtn:"Accéder à l'outil ✈",gateFine:"Vous serez invité à confirmer par e-mail auprès de michael@boudot.me. Aucune donnée n'est stockée sur ce site.",gateErr:"Merci d'entrer une adresse e-mail valide.",devisKicker:"DEVIS SUR-MESURE",devisTitle:"Composons votre séjour à Corfou",devisText:"Hébergement, activités, séminaires ou séjours de groupe : dites-nous votre projet, on vous répond avec une proposition personnalisée.",dNom:"Nom / société",dMail:"Votre e-mail",dDates:"Période souhaitée (ex : mai 2026)",dPax:"Nombre de personnes",dMsg:"Votre projet : type d'hébergement, activités, occasion…",dSend:"Envoyer ma demande de devis ✦",dFine:"Votre message s'ouvrira dans votre messagerie, à destination de michael@boudot.me.",dErr:"Merci d'indiquer un e-mail valide pour vous recontacter.",footer1:"Kerkyra Work & Play — agence réceptive à Corfou",footer2:"Document privé — Ne pas reproduire à des fins commerciales.",mailGateSubj:"Accès guide vols Corfou 2026",mailDevisSubj:"Demande de devis Corfou"},
- en:{brandline:"KERKYRA WORK & PLAY · CORFU",title:"Direct flights to Corfu — 2026 season",heroSub:"Find the best direct connection to the island, from France, Belgium, Luxembourg and Switzerland.",heroKicker:"15 departure cities · direct · April → November",sectionTitle:"Choose your departure city",sectionSub:"Click a city on the map, or use the filters below.",filterVille:"By departure city",filterJour:"By travel day",allVilles:"All cities",allJours:"All days",parisCombo:"Paris (CDG + Orly)",reset:"Reset",countOne:"{n} connection found",countMany:"{n} connections found",outTag:"Outbound",retTag:"Return",dDays:"Days:",dTime:"Time:",labelAirline:"Airline(s)",labelSeason:"Season",labelDur:"Duration",priceFrom:"From {p} round-trip",footnote:"Days, times and prices are indicative (2026 season), to be confirmed on the airlines' websites. 'From' prices are round-trip, excluding checked baggage.",mapHint:"🗺️ Each dot = a city with a direct flight to Corfu. Click to filter.",cFrance:"FRANCE",cBelgique:"BELGIUM",cSuisse:"SWITZERLAND",corfouPin:"CORFU ✈",ctaTitle:"Fancy experiencing Corfu differently?",ctaText:"From characterful stays to tailor-made activities, seminars and group trips — tell us your idea and we'll craft your trip and quote.",ctaBtn:"Get my Corfu quote ✦",topCta:"Get a quote ✦",gateTitle:"Your 2026 flights guide",gateText:"Leave your email to access the direct-flights finder to Corfu (France, Belgium, Luxembourg, Switzerland).",gatePh:"your@email.com",gateBtn:"Access the tool ✈",gateFine:"You'll be asked to confirm by email at michael@boudot.me. No data is stored on this site.",gateErr:"Please enter a valid email address.",devisKicker:"TAILOR-MADE QUOTE",devisTitle:"Let's craft your Corfu stay",devisText:"Accommodation, activities, seminars or group trips: tell us your project and we'll reply with a personalised proposal.",dNom:"Name / company",dMail:"Your email",dDates:"Preferred dates (e.g. May 2026)",dPax:"Number of people",dMsg:"Your project: type of stay, activities, occasion…",dSend:"Send my quote request ✦",dFine:"Your message will open in your email app, addressed to michael@boudot.me.",dErr:"Please provide a valid email so we can reach you.",footer1:"Kerkyra Work & Play — destination agency in Corfu",footer2:"Private document — Do not reproduce for commercial purposes.",mailGateSubj:"Access Corfu flights guide 2026",mailDevisSubj:"Corfu quote request"},
- el:{brandline:"KERKYRA WORK & PLAY · ΚΕΡΚΥΡΑ",title:"Απευθείας πτήσεις για την Κέρκυρα — Σεζόν 2026",heroSub:"Βρείτε την καλύτερη απευθείας σύνδεση για το νησί, από Γαλλία, Βέλγιο, Λουξεμβούργο και Ελβετία.",heroKicker:"15 πόλεις αναχώρησης · απευθείας · Απρίλιος → Νοέμβριος",sectionTitle:"Επιλέξτε την πόλη αναχώρησης",sectionSub:"Κάντε κλικ σε μια πόλη στον χάρτη ή χρησιμοποιήστε τα φίλτρα.",filterVille:"Ανά πόλη αναχώρησης",filterJour:"Ανά ημέρα ταξιδιού",allVilles:"Όλες οι πόλεις",allJours:"Όλες οι ημέρες",parisCombo:"Παρίσι (CDG + Orly)",reset:"Επαναφορά",countOne:"{n} σύνδεση βρέθηκε",countMany:"{n} συνδέσεις βρέθηκαν",outTag:"Μετάβαση",retTag:"Επιστροφή",dDays:"Ημέρες:",dTime:"Ώρα:",labelAirline:"Αεροπορική",labelSeason:"Σεζόν",labelDur:"Διάρκεια",priceFrom:"Από {p} με επιστροφή",footnote:"Ημέρες, ώρες και τιμές ενδεικτικές (σεζόν 2026), προς επιβεβαίωση στους ιστότοπους των αεροπορικών. Τιμές «από» με επιστροφή, χωρίς αποσκευές.",mapHint:"🗺️ Κάθε σημείο = πόλη με απευθείας πτήση για την Κέρκυρα. Κάντε κλικ για φιλτράρισμα.",cFrance:"ΓΑΛΛΙΑ",cBelgique:"ΒΕΛΓΙΟ",cSuisse:"ΕΛΒΕΤΙΑ",corfouPin:"ΚΕΡΚΥΡΑ ✈",ctaTitle:"Θέλετε να ζήσετε την Κέρκυρα αλλιώς;",ctaText:"Από μοναδικά καταλύματα έως δραστηριότητες κατά παραγγελία, σεμινάρια και ομαδικά ταξίδια — πείτε μας την ιδέα σας και ετοιμάζουμε το ταξίδι και την προσφορά σας.",ctaBtn:"Ζητήστε προσφορά για την Κέρκυρα ✦",topCta:"Ζητήστε προσφορά ✦",gateTitle:"Ο οδηγός πτήσεων 2026",gateText:"Αφήστε το email σας για πρόσβαση στο εργαλείο αναζήτησης απευθείας πτήσεων για την Κέρκυρα (Γαλλία, Βέλγιο, Λουξεμβούργο, Ελβετία).",gatePh:"email σας",gateBtn:"Πρόσβαση στο εργαλείο ✈",gateFine:"Θα λάβετε επιβεβαίωση στο michael@boudot.me. Δεν αποθηκεύονται δεδομένα σε αυτόν τον ιστότοπο.",gateErr:"Παρακαλώ εισάγετε έγκυρο email.",devisKicker:"ΠΡΟΣΦΟΡΑ ΚΑΤΑ ΠΑΡΑΓΓΕΛΙΑ",devisTitle:"Σχεδιάζουμε το ταξίδι σας στην Κέρκυρα",devisText:"Κατάλυμα, δραστηριότητες, σεμινάρια ή ομαδικά ταξίδια: πείτε μας το έργο σας και απαντάμε με εξατομικευμένη πρόταση.",dNom:"Όνομα / εταιρεία",dMail:"Το email σας",dDates:"Επιθυμητή περίοδος (π.χ. Μάιος 2026)",dPax:"Αριθμός ατόμων",dMsg:"Το έργο σας: τύπος καταλύματος, δραστηριότητες, περίσταση…",dSend:"Αποστολή αιτήματος προσφοράς ✦",dFine:"Το μήνυμα θα ανοίξει στην εφαρμογή email σας, προς michael@boudot.me.",dErr:"Παρακαλώ δώστε έγκυρο email για να επικοινωνήσουμε.",footer1:"Kerkyra Work & Play — ταξιδιωτικό γραφείο στην Κέρκυρα",footer2:"Ιδιωτικό έγγραφο — Απαγορεύεται η αναπαραγωγή για εμπορικούς σκοπούς.",mailGateSubj:"Πρόσβαση οδηγό πτήσεων Κέρκυρα 2026",mailDevisSubj:"Αίτημα προσφοράς Κέρκυρα"}
+ fr:{brandline:"KERKYRA WORK & PLAY · CORFOU",title:"Vols directs vers Corfou — Saison 2026",heroSub:"Trouvez la meilleure liaison directe vers l'île, depuis la France, la Belgique, le Luxembourg et la Suisse.",heroKicker:"15 villes de départ · direct · avril → novembre",sectionTitle:"Choisissez votre ville de départ",sectionSub:"Cliquez une ville sur la carte, ou utilisez les filtres ci-dessous.",filterVille:"Par ville de départ",filterJour:"Par jour de voyage",allVilles:"Toutes les villes",allJours:"Tous les jours",parisCombo:"Paris (CDG + Orly)",reset:"Réinitialiser",countOne:"{n} liaison trouvée",countMany:"{n} liaisons trouvées",outTag:"Aller",retTag:"Retour",dDays:"Jours :",dTime:"Horaire :",labelAirline:"Compagnie(s)",labelSeason:"Saison",labelDur:"Durée",priceFrom:"À partir de {p} l'aller-retour",footnote:"Jours, horaires et prix indicatifs (saison 2026), à confirmer sur les moteurs des compagnies. Prix « dès » en aller-retour, hors bagage soute.",mapHint:"🗺️ Chaque point = une ville reliée à Corfou en direct. Cliquez pour filtrer.",cFrance:"FRANCE",cBelgique:"BELGIQUE",cSuisse:"SUISSE",corfouPin:"CORFOU ✈",ctaTitle:"Envie de vivre Corfou autrement ?",ctaText:"De l'hébergement de caractère aux activités sur-mesure, séminaires et séjours de groupe — dites-nous votre envie, on compose votre séjour et votre devis.",ctaBtn:"Recevoir mon devis Corfou ✦",topCta:"Demander un devis ✦",gateTitle:"Votre guide des vols 2026",gateText:"Laissez votre e-mail pour accéder à l'outil de recherche des vols directs vers Corfou (France, Belgique, Luxembourg, Suisse).",gatePh:"votre@email.com",gateBtn:"Accéder à l'outil ✈",gateFine:"Vous serez invité à confirmer par e-mail auprès de hello@kerkyra.fr. Aucune donnée n'est stockée sur ce site.",gateErr:"Merci d'entrer une adresse e-mail valide.",devisKicker:"DEVIS SUR-MESURE",devisTitle:"Composons votre séjour à Corfou",devisText:"Hébergement, activités, séminaires ou séjours de groupe : dites-nous votre projet, on vous répond avec une proposition personnalisée.",dNom:"Nom / société",dMail:"Votre e-mail",dDates:"Période souhaitée (ex : mai 2026)",dPax:"Nombre de personnes",dMsg:"Votre projet : type d'hébergement, activités, occasion…",dSend:"Envoyer ma demande de devis ✦",dFine:"Votre message s'ouvrira dans votre messagerie, à destination de hello@kerkyra.fr.",dErr:"Merci d'indiquer un e-mail valide pour vous recontacter.",footer1:"Kerkyra Work & Play — agence réceptive à Corfou",footer2:"Document privé — Ne pas reproduire à des fins commerciales.",mailGateSubj:"Accès guide vols Corfou 2026",mailDevisSubj:"Demande de devis Corfou"},
+ en:{brandline:"KERKYRA WORK & PLAY · CORFU",title:"Direct flights to Corfu — 2026 season",heroSub:"Find the best direct connection to the island, from France, Belgium, Luxembourg and Switzerland.",heroKicker:"15 departure cities · direct · April → November",sectionTitle:"Choose your departure city",sectionSub:"Click a city on the map, or use the filters below.",filterVille:"By departure city",filterJour:"By travel day",allVilles:"All cities",allJours:"All days",parisCombo:"Paris (CDG + Orly)",reset:"Reset",countOne:"{n} connection found",countMany:"{n} connections found",outTag:"Outbound",retTag:"Return",dDays:"Days:",dTime:"Time:",labelAirline:"Airline(s)",labelSeason:"Season",labelDur:"Duration",priceFrom:"From {p} round-trip",footnote:"Days, times and prices are indicative (2026 season), to be confirmed on the airlines' websites. 'From' prices are round-trip, excluding checked baggage.",mapHint:"🗺️ Each dot = a city with a direct flight to Corfu. Click to filter.",cFrance:"FRANCE",cBelgique:"BELGIUM",cSuisse:"SWITZERLAND",corfouPin:"CORFU ✈",ctaTitle:"Fancy experiencing Corfu differently?",ctaText:"From characterful stays to tailor-made activities, seminars and group trips — tell us your idea and we'll craft your trip and quote.",ctaBtn:"Get my Corfu quote ✦",topCta:"Get a quote ✦",gateTitle:"Your 2026 flights guide",gateText:"Leave your email to access the direct-flights finder to Corfu (France, Belgium, Luxembourg, Switzerland).",gatePh:"your@email.com",gateBtn:"Access the tool ✈",gateFine:"You'll be asked to confirm by email at hello@kerkyra.fr. No data is stored on this site.",gateErr:"Please enter a valid email address.",devisKicker:"TAILOR-MADE QUOTE",devisTitle:"Let's craft your Corfu stay",devisText:"Accommodation, activities, seminars or group trips: tell us your project and we'll reply with a personalised proposal.",dNom:"Name / company",dMail:"Your email",dDates:"Preferred dates (e.g. May 2026)",dPax:"Number of people",dMsg:"Your project: type of stay, activities, occasion…",dSend:"Send my quote request ✦",dFine:"Your message will open in your email app, addressed to hello@kerkyra.fr.",dErr:"Please provide a valid email so we can reach you.",footer1:"Kerkyra Work & Play — destination agency in Corfu",footer2:"Private document — Do not reproduce for commercial purposes.",mailGateSubj:"Access Corfu flights guide 2026",mailDevisSubj:"Corfu quote request"},
+ el:{brandline:"KERKYRA WORK & PLAY · ΚΕΡΚΥΡΑ",title:"Απευθείας πτήσεις για την Κέρκυρα — Σεζόν 2026",heroSub:"Βρείτε την καλύτερη απευθείας σύνδεση για το νησί, από Γαλλία, Βέλγιο, Λουξεμβούργο και Ελβετία.",heroKicker:"15 πόλεις αναχώρησης · απευθείας · Απρίλιος → Νοέμβριος",sectionTitle:"Επιλέξτε την πόλη αναχώρησης",sectionSub:"Κάντε κλικ σε μια πόλη στον χάρτη ή χρησιμοποιήστε τα φίλτρα.",filterVille:"Ανά πόλη αναχώρησης",filterJour:"Ανά ημέρα ταξιδιού",allVilles:"Όλες οι πόλεις",allJours:"Όλες οι ημέρες",parisCombo:"Παρίσι (CDG + Orly)",reset:"Επαναφορά",countOne:"{n} σύνδεση βρέθηκε",countMany:"{n} συνδέσεις βρέθηκαν",outTag:"Μετάβαση",retTag:"Επιστροφή",dDays:"Ημέρες:",dTime:"Ώρα:",labelAirline:"Αεροπορική",labelSeason:"Σεζόν",labelDur:"Διάρκεια",priceFrom:"Από {p} με επιστροφή",footnote:"Ημέρες, ώρες και τιμές ενδεικτικές (σεζόν 2026), προς επιβεβαίωση στους ιστότοπους των αεροπορικών. Τιμές «από» με επιστροφή, χωρίς αποσκευές.",mapHint:"🗺️ Κάθε σημείο = πόλη με απευθείας πτήση για την Κέρκυρα. Κάντε κλικ για φιλτράρισμα.",cFrance:"ΓΑΛΛΙΑ",cBelgique:"ΒΕΛΓΙΟ",cSuisse:"ΕΛΒΕΤΙΑ",corfouPin:"ΚΕΡΚΥΡΑ ✈",ctaTitle:"Θέλετε να ζήσετε την Κέρκυρα αλλιώς;",ctaText:"Από μοναδικά καταλύματα έως δραστηριότητες κατά παραγγελία, σεμινάρια και ομαδικά ταξίδια — πείτε μας την ιδέα σας και ετοιμάζουμε το ταξίδι και την προσφορά σας.",ctaBtn:"Ζητήστε προσφορά για την Κέρκυρα ✦",topCta:"Ζητήστε προσφορά ✦",gateTitle:"Ο οδηγός πτήσεων 2026",gateText:"Αφήστε το email σας για πρόσβαση στο εργαλείο αναζήτησης απευθείας πτήσεων για την Κέρκυρα (Γαλλία, Βέλγιο, Λουξεμβούργο, Ελβετία).",gatePh:"email σας",gateBtn:"Πρόσβαση στο εργαλείο ✈",gateFine:"Θα λάβετε επιβεβαίωση στο hello@kerkyra.fr. Δεν αποθηκεύονται δεδομένα σε αυτόν τον ιστότοπο.",gateErr:"Παρακαλώ εισάγετε έγκυρο email.",devisKicker:"ΠΡΟΣΦΟΡΑ ΚΑΤΑ ΠΑΡΑΓΓΕΛΙΑ",devisTitle:"Σχεδιάζουμε το ταξίδι σας στην Κέρκυρα",devisText:"Κατάλυμα, δραστηριότητες, σεμινάρια ή ομαδικά ταξίδια: πείτε μας το έργο σας και απαντάμε με εξατομικευμένη πρόταση.",dNom:"Όνομα / εταιρεία",dMail:"Το email σας",dDates:"Επιθυμητή περίοδος (π.χ. Μάιος 2026)",dPax:"Αριθμός ατόμων",dMsg:"Το έργο σας: τύπος καταλύματος, δραστηριότητες, περίσταση…",dSend:"Αποστολή αιτήματος προσφοράς ✦",dFine:"Το μήνυμα θα ανοίξει στην εφαρμογή email σας, προς hello@kerkyra.fr.",dErr:"Παρακαλώ δώστε έγκυρο email για να επικοινωνήσουμε.",footer1:"Kerkyra Work & Play — ταξιδιωτικό γραφείο στην Κέρκυρα",footer2:"Ιδιωτικό έγγραφο — Απαγορεύεται η αναπαραγωγή για εμπορικούς σκοπούς.",mailGateSubj:"Πρόσβαση οδηγό πτήσεων Κέρκυρα 2026",mailDevisSubj:"Αίτημα προσφοράς Κέρκυρα"}
 };
 
 let lang="fr";
@@ -445,19 +467,19 @@ $$('#langsw button').forEach(b=>b.onclick=()=>setLang(b.getAttribute('data-lang'
 fVille.onchange=render;fJour.onchange=render;$('#reset').onclick=()=>{fVille.value="";fJour.value="";render();};
 setLang('fr');
 
-// email gate + devis (mailto michael@boudot.me)
+// email gate + devis (mailto hello@kerkyra.fr)
 const valid=e=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e),gate=$('#gate');
 $('#gateSkip').onclick=()=>gate.classList.add('hidden');
 $('#go').onclick=()=>{const e=$('#email').value.trim();if(!valid(e)){$('#gerr').textContent=T[lang].gateErr;return;}$('#gerr').textContent="";
   const b=encodeURIComponent((lang==='el'?"Email: ":"E-mail : ")+e);
-  window.location.href="mailto:michael@boudot.me?subject="+encodeURIComponent(T[lang].mailGateSubj)+"&body="+b;gate.classList.add('hidden');};
+  window.location.href="mailto:hello@kerkyra.fr?subject="+encodeURIComponent(T[lang].mailGateSubj)+"&body="+b;gate.classList.add('hidden');};
 $('#email').addEventListener('keydown',ev=>{if(ev.key==='Enter')$('#go').click();});
 const devis=$('#devis');function openDevis(e){if(e)e.preventDefault();devis.classList.remove('hidden');}
 $('#openDevis').onclick=openDevis;$('#topDevis').onclick=openDevis;$('#devisClose').onclick=()=>devis.classList.add('hidden');
 devis.addEventListener('click',e=>{if(e.target===devis)devis.classList.add('hidden');});
 $('#dSend').onclick=()=>{const ml=$('#dMail').value.trim();if(!valid(ml)){$('#derr').textContent=T[lang].dErr;return;}$('#derr').textContent="";
   const body=encodeURIComponent("Nom: "+$('#dNom').value+"\nEmail: "+ml+"\nDates: "+$('#dDates').value+"\nPax: "+$('#dPax').value+"\n\n"+$('#dMsg').value);
-  window.location.href="mailto:michael@boudot.me?subject="+encodeURIComponent(T[lang].mailDevisSubj)+"&body="+body;};
+  window.location.href="mailto:hello@kerkyra.fr?subject="+encodeURIComponent(T[lang].mailDevisSubj)+"&body="+body;};
 </script>
 </body>
 </html>

@@ -57,8 +57,8 @@ Direct, créatif, efficace. Aller droit au but, proposer des options concrètes.
 - Bloc devis : carrousel d'activités (`#car`, fonction `initActivityCarousel`), 4 photos `img/act-*.jpg` reprises du blog kerkyra.fr (CDN Webflow), recadrées en 16:10 et optimisées. La mention « programme 2027 incomplet » est la clé i18n `updateNote`, affichée sous le texte d'intro (classe `.notice`) : mettre sa date à jour à chaque relevé.
 - Carte : affichée sans cadre sur le fond (`viewBox="88 8 708 552"`). La Corse est visible et étiquetée ; Corfou est un encart à droite (hors échelle) dont le contour vient de Natural Earth 10m (paquet npm `world-atlas`, 98 points, projection équirectangulaire corrigée à 39,6° N), avec le point de l'aéroport CFU.
 
-## Page « Destination Corfou 2027 » (`destination-2027.html`, ajout du 12/11/2026)
-- **Rôle** : page de présentation commerciale, montrée en rendez-vous sur téléphone. Non indexée (`noindex`). URL une fois en ligne : `vols.kerkyra.fr/destination-2027` (ajouter `?lang=en` ou `?lang=gr` pour forcer la langue).
+## Page « Destination Corfou 2027 » (`pro.html`, ajout du 12/11/2026)
+- **Rôle** : page de présentation commerciale, montrée en rendez-vous sur téléphone. Non indexée (`noindex`). URL une fois en ligne : `vols.kerkyra.fr/pro` (ajouter `?lang=en` ou `?lang=gr` pour forcer la langue).
 - **Fichier unique** HTML/CSS/JS, vanilla, aucun CDN. Ressources dans `destination/img/` (WebP) et `destination/fonts/` (The Seasons, Mistrully, Playfair Display, Poppins, en local).
 - **Données** dans l'objet `CONFIG` (durée de vol, températures, villes, activités, formats de groupe, chiffres DMC, contact) ; **textes** dans `TRANSLATIONS` (`fr` / `en` / `gr`), appliqués par `applyLanguage()` via `data-i18n`. Variables de texte : `{flight}`, `{price}`, `{year}`.
 - **Sections** : hero animé → manifeste (mots qui s'allument au scroll) → infographies (2 h 45, météo, 13 villes, repères) → carrousel incontournables → carrousel extras → formats de groupe (cartes empilées) + cas réel → DMC → FAQ → contact.

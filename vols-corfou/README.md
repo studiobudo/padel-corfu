@@ -28,8 +28,8 @@ Compagnies, fréquences et fins de saison : fiables. Jours, horaires et prix :
 Données modifiables dans les tableaux JS `FLIGHTS` / `MAP` et le dictionnaire `T`.
 
 ## Page « Destination Corfou 2027 »
-`destination-2027.html` : présentation de la destination pour les rendez-vous
+`pro.html` : présentation de la destination pour les rendez-vous
 prospects (titre animé, infographies, carrousels d'activités, formats de groupe,
 agence, FAQ, contact). Servie par le même projet Vercel à l'adresse
-`/destination-2027`, non indexée. Ressources dans `destination/`. Données dans
+`/pro`, non indexée. Ressources dans `destination/`. Données dans
 `CONFIG`, textes FR / EN / GR dans `TRANSLATIONS`.

@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Destination Corfou 2027 — Kerkyra Work & Play</title>
+<meta name="description" content="Destination Corfou 2027 : les atouts de l'île, nos activités et notre agence réceptive, présentés par Kerkyra Work & Play.">
+<!-- Page de présentation commerciale, montrée en rendez-vous : non indexée -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#003d47">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23008a95'/%3E%3Ctext x='32' y='45' font-family='Arial,Helvetica,sans-serif' font-size='34' font-weight='700' fill='%23e0b12a' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="destination/fonts/the-seasons.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="destination/img/hero.webp" as="image">
+
+<style>
+/* ==========================================================================
+   POLICES DE MARQUE (hébergées en local, aucun CDN)
+   ========================================================================== */
+/* The Seasons (version démo) : seuls les glyphes sûrs sont utilisés ; accents, « 4 », tirets, etc. basculent sur Playfair Display */
+@font-face{font-family:'The Seasons';src:url('destination/fonts/the-seasons.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+20,U+2C,U+2E,U+30-33,U+35-3B,U+3F,U+41-5A,U+61-7A}
+@font-face{font-family:'Mistrully';src:url('destination/fonts/mistrully.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Playfair Display';src:url('destination/fonts/playfair-display-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Playfair Display';src:url('destination/fonts/playfair-display-latin-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Poppins';src:url('destination/fonts/poppins-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Poppins';src:url('destination/fonts/poppins-latin-500-normal.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Poppins';src:url('destination/fonts/poppins-latin-600-normal.woff2') format('woff2');font-weight:600;font-display:swap}
+
+/* ==========================================================================
+   TOKENS (charte Kerkyra Work & Play)
+   ========================================================================== */
+:root{
+  --teal:#008a95;--teal-light:#00a8ba;--teal-dark:#006671;--teal-deep:#00505a;--abyss:#003d47;
+  --gold:#e0b12a;--gold-light:#f0d97a;--gold-pale:#f5e5b8;
+  --ink:#0d3b42;--cream:#FAF8F3;--white:#fff;--muted:#5d7a7f;--line:rgba(13,59,66,.14);
+  --font-display:'The Seasons','Playfair Display',Georgia,serif;
+  --font-serif:'Playfair Display',Georgia,serif;
+  --font-num:'Playfair Display',Georgia,serif; /* chiffres : The Seasons démo n'a pas de « 4 » */
+  --font-script:'Mistrully','Playfair Display',Georgia,serif;
+  --font-body:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --pad:22px;--radius:6px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --shadow:0 10px 15px rgba(0,0,0,.1);
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased}
+main{overflow-x:clip}
+img{display:block;max-width:100%}
+h1,h2,h3,p,figure,ul,ol{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:1080px;margin:0 auto;padding:0 var(--pad)}
+.section{padding:84px 0}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--gold)}
+.h2{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,9.4vw,58px);line-height:1.12;margin-top:14px;text-wrap:balance}
+.h2 em{font-family:var(--font-script);font-style:normal;color:var(--gold);font-size:1.1em;line-height:1;padding-right:.08em}
+.lead{margin-top:16px;max-width:56ch;color:var(--muted)}
+.on-dark{color:#fff}
+.on-dark .eyebrow{color:var(--gold-light)}
+.on-dark .lead{color:rgba(255,255,255,.78)}
+
+/* Barre de progression de lecture */
+.progress{position:fixed;inset:0 0 auto 0;height:3px;background:var(--gold);transform-origin:0 50%;transform:scaleX(var(--sp,0));z-index:60;pointer-events:none}
+
+/* Apparitions au scroll (actives seulement si le JS tourne) */
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity .9s ease-out,transform .9s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+.js .rv.in{opacity:1;transform:none}
+/* Le masque est porté par l'image (un élément entièrement masqué ne déclenche pas l'observateur) */
+.js .rv-img img{clip-path:inset(0 0 100% 0);transform:scale(1.12);transition:clip-path 1.2s var(--ease),transform 1.6s var(--ease)}
+.js .rv-img.in img{clip-path:inset(0);transform:none}
+
+/* ==========================================================================
+   HERO — titre animé « Destination Corfou 2027 »
+   ========================================================================== */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;background:var(--abyss);color:#fff;display:flex;flex-direction:column}
+.hero-bg{position:absolute;inset:-4% 0 0 0;will-change:transform;transform:translate3d(0,calc(var(--hp,0)*9%),0) scale(calc(1 + var(--hp,0)*.12))}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:62% 50%;animation:kenburns 22s ease-out both}
+@keyframes kenburns{from{transform:scale(1.22)}to{transform:scale(1.02)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,61,71,.62) 0%,rgba(0,61,71,.22) 26%,rgba(0,61,71,.46) 56%,rgba(0,61,71,.92) 100%);pointer-events:none}
+.hero-top{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top)) var(--pad) 0}
+.hero-logo img{height:44px;width:auto}
+.langsw{display:flex;border:1px solid rgba(255,255,255,.45);border-radius:999px;overflow:hidden;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);background:rgba(0,61,71,.25)}
+.langsw button{border:0;background:transparent;color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;padding:8px 12px;min-height:36px}
+.langsw button[aria-pressed="true"]{background:#fff;color:var(--teal-dark)}
+.hero-in{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--pad) 96px;will-change:transform,opacity;transform:translate3d(0,calc(var(--hp,0)*-90px),0);opacity:calc(1 - var(--hp,0)*1.5)}
+.hero-kicker{font-size:11.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:12px;text-shadow:0 1px 12px rgba(0,61,71,.6)}
+.hero-kicker::before{content:"";width:0;height:1px;background:var(--gold);animation:rule 1s .3s var(--ease) forwards}
+@keyframes rule{to{width:40px}}
+.hero-title{font-weight:400;margin-top:10px;line-height:.9}
+.ht-script{display:block;font-family:var(--font-script);font-size:clamp(46px,min(14vw,13svh),112px);line-height:1.15;color:var(--gold);margin:0 0 -.14em .04em;position:relative;z-index:1;clip-path:inset(-20% 100% -20% 0);animation:write 1.5s .45s cubic-bezier(.6,.1,.3,1) forwards;text-shadow:0 2px 18px rgba(0,61,71,.45)}
+@keyframes write{to{clip-path:inset(-20% -5% -20% 0)}}
+.ht-main{display:block;font-family:var(--font-display);font-size:clamp(84px,min(25.5vw,25svh),230px);letter-spacing:-.01em;overflow:hidden;padding:.06em 0 .04em;margin-left:-.04em;text-shadow:0 4px 40px rgba(0,61,71,.35)}
+.ht-main .ch{display:inline-block;transform:translateY(112%) rotate(7deg);transform-origin:0 100%;animation:rise 1.15s var(--ease) forwards;animation-delay:calc(.75s + var(--i)*75ms)}
+@keyframes rise{to{transform:none}}
+:lang(el) .ht-main{font-size:clamp(60px,min(17.5vw,22svh),170px)}
+:lang(el) .ht-script{font-family:var(--font-serif);font-style:italic;font-size:clamp(34px,9.5vw,80px);margin-bottom:0}
+.ht-year{display:flex;align-items:center;gap:16px;margin-top:.02em}
+.ht-year::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold),rgba(224,177,42,0));transform-origin:0 50%;transform:scaleX(0);animation:line 1.6s 1.9s var(--ease) forwards}
+@keyframes line{to{transform:scaleX(1)}}
+.ht-digits{display:flex;font-family:var(--font-display);font-size:clamp(70px,min(21vw,20svh),190px);line-height:1;color:transparent;-webkit-text-stroke:1.4px var(--gold);animation:fill 1.2s 2.5s ease-out forwards}
+@keyframes fill{to{color:var(--gold)}}
+.ht-digits .dg{display:block;height:1em;overflow:hidden}
+.ht-digits .dg span{display:block;height:1em;transform:translateY(0);animation:roll 1.5s cubic-bezier(.3,.8,.2,1) forwards;animation-delay:calc(1.25s + var(--i)*110ms)}
+.ht-digits .dg b{display:block;height:1em;font-weight:400}
+@keyframes roll{to{transform:translateY(calc(var(--n)*-1em))}}
+.hero-sub{margin-top:20px;max-width:34ch;font-size:15.5px;color:rgba(255,255,255,.9);opacity:0;animation:fadeup 1s 2.2s var(--ease) forwards}
+@keyframes fadeup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero-coords{position:absolute;right:var(--pad);bottom:104px;z-index:2;writing-mode:vertical-rl;font-size:10.5px;letter-spacing:.3em;color:rgba(255,255,255,.7);opacity:calc(1 - var(--hp,0)*3)}
+.hero-scroll{position:absolute;left:0;right:0;bottom:calc(18px + env(safe-area-inset-bottom));z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.8);opacity:calc(1 - var(--hp,0)*4)}
+.hero-scroll i{display:block;width:1px;height:38px;background:rgba(255,255,255,.3);position:relative;overflow:hidden}
+.hero-scroll i::after{content:"";position:absolute;inset:0;background:var(--gold);animation:drop 2s ease-in-out infinite}
+@keyframes drop{0%{transform:translateY(-100%)}60%,100%{transform:translateY(100%)}}
+
+/* ==========================================================================
+   MANIFESTE — phrase qui s'illumine mot à mot au scroll
+   ========================================================================== */
+.manifesto{padding:96px 0 84px}
+.manifesto p.words{font-family:var(--font-serif);font-size:clamp(27px,7.6vw,50px);line-height:1.28;max-width:20ch;text-wrap:pretty}
+.manifesto .w{color:rgba(13,59,66,.16);transition:color .5s ease-out}
+.manifesto .w.on{color:var(--ink)}
+.manifesto .w.on.hl{color:var(--teal)}
+.manifesto .sign{font-family:var(--font-script);font-size:44px;line-height:1.2;color:var(--gold);margin-top:26px}
+.manifesto .sign small{display:block;font-family:var(--font-body);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+
+/* ==========================================================================
+   INFOGRAPHIES — 2 h 45, météo, 13 villes, repères
+   ========================================================================== */
+.figures{background:linear-gradient(160deg,var(--teal) 0%,var(--abyss) 62%);padding-bottom:0}
+.big{font-family:var(--font-num);font-variant-numeric:lining-nums;font-size:clamp(96px,30vw,210px);line-height:.95;color:#fff;letter-spacing:-.01em;white-space:nowrap}
+.big small{font-size:.36em;color:var(--gold);letter-spacing:0;margin:0 .12em 0 .06em}
+.big-label{font-size:18px;font-weight:500;margin-top:6px;color:#fff}
+.note{font-size:14px;color:rgba(255,255,255,.72);max-width:44ch;margin-top:10px}
+
+/* -- Vol : arc tracé au scroll -- */
+.flight{margin-top:40px}
+.flight svg{width:100%;height:auto;display:block;overflow:visible;margin-top:8px}
+.flight .arc-bg{fill:none;stroke:rgba(255,255,255,.22);stroke-width:1.5;stroke-dasharray:2 7;stroke-linecap:round}
+.flight .arc{fill:none;stroke:var(--gold);stroke-width:2.2;stroke-linecap:round}
+.flight text{font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:.2em;fill:#fff}
+.flight .sub{font-size:9px;font-weight:400;letter-spacing:.08em;fill:rgba(255,255,255,.65)}
+
+/* -- Météo : soleil + barres mensuelles -- */
+.weather{margin-top:84px;background:var(--cream);color:var(--ink);position:relative;overflow:hidden;padding:44px var(--pad) 34px}
+.weather .eyebrow{color:var(--teal)}
+.sun{position:absolute;top:-70px;right:-70px;width:230px;height:230px;pointer-events:none;transform:translate3d(0,calc((1 - var(--wp,1))*90px),0)}
+.sun svg{width:100%;height:100%;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.weather h3{font-family:var(--font-display);font-weight:400;font-size:clamp(30px,8.4vw,46px);line-height:1.12;margin-top:12px;max-width:11ch;position:relative}
+.bars{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:end;height:210px;margin-top:34px;position:relative}
+.bar{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}
+.bar b{font-family:var(--font-num);font-variant-numeric:lining-nums;font-weight:400;font-size:19px;line-height:1;margin-bottom:6px;opacity:0;transition:opacity .6s ease-out;transition-delay:calc(.5s + var(--i)*80ms)}
+.bar i{display:block;width:100%;height:calc(var(--h)*1%);background:rgba(0,138,149,.2);transform-origin:50% 100%;transform:scaleY(0);transition:transform 1.1s var(--ease);transition-delay:calc(var(--i)*80ms)}
+.bar.best i{background:linear-gradient(180deg,var(--gold) 0%,var(--gold-light) 100%)}
+.bar span{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.bars.in .bar i{transform:none}
+.bars.in .bar b{opacity:1}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:12.5px;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:8px}
+.legend span::before{content:"";width:12px;height:12px;background:rgba(0,138,149,.2)}
+.legend .lg-best::before{background:var(--gold)}
+.wfacts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
+.wfacts div{background:var(--cream);padding:16px 14px}
+.wfacts b{display:block;font-family:var(--font-num);font-variant-numeric:lining-nums;font-weight:400;font-size:30px;line-height:1.1;color:var(--teal)}
+.wfacts span{font-size:13px;color:var(--muted);line-height:1.4;display:block;margin-top:4px}
+.fine{font-size:11.5px;color:var(--muted);margin-top:14px}
+
+/* -- 13 villes : carte et liaisons -- */
+.cities{padding-top:84px;padding-bottom:70px}
+.map{margin:22px 0 0}
+.map svg{width:100%;height:auto;display:block;overflow:visible}
+.map .land{fill:rgba(255,255,255,.07);stroke:rgba(255,255,255,.38);stroke-width:1.2;stroke-linejoin:round}
+.map .route{fill:none;stroke:var(--gold);stroke-width:1.5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:.85;transition:stroke-dashoffset 1.5s var(--ease);transition-delay:calc(.2s + var(--i)*90ms)}
+.map .city{fill:#fff;transform-box:fill-box;transform-origin:center;transform:scale(0);transition:transform .5s var(--ease);transition-delay:calc(var(--i)*90ms)}
+.map.in .route{stroke-dashoffset:0}
+.map.in .city{transform:none}
+.map .cfu{fill:var(--gold)}
+.map .cfu-ring{fill:none;stroke:var(--gold);stroke-width:1.5;transform-box:fill-box;transform-origin:center;animation:ping 2.4s ease-out infinite}
+@keyframes ping{from{transform:scale(.6);opacity:.9}to{transform:scale(3);opacity:0}}
+.map text{font-family:var(--font-body);font-size:15px;font-weight:600;letter-spacing:.2em;fill:var(--gold-light)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{border:1px solid rgba(255,255,255,.34);border-radius:999px;padding:6px 13px;font-size:13.5px;line-height:1.3}
+.country{margin-top:22px}
+.country h4{margin:0;font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light)}
+.linkline{display:inline-flex;align-items:center;gap:10px;margin-top:28px;font-weight:500;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:4px;min-height:44px}
+.linkline svg{width:18px;height:18px;transition:transform .25s ease-out}
+.linkline:hover svg{transform:translateX(4px)}
+
+/* -- Repères -- */
+.facts{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,.2)}
+.fact{padding:26px 14px 26px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+.fact:nth-child(odd){border-right:1px solid rgba(255,255,255,.2)}
+.fact:nth-child(even){padding-left:18px}
+.fact b{display:block;font-family:var(--font-num);font-variant-numeric:lining-nums;font-weight:400;font-size:38px;line-height:1.05;color:var(--gold)}
+.fact span{display:block;font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.8);margin-top:6px}
+
+/* ==========================================================================
+   BANDEAUX PHOTO (parallaxe)
+   ========================================================================== */
+.band{position:relative;height:74svh;min-height:420px;overflow:hidden;background:var(--abyss);color:#fff;display:flex;align-items:flex-end}
+.band img{position:absolute;left:0;top:-14%;width:100%;height:128%;object-fit:cover;will-change:transform;transform:translate3d(0,calc(var(--pp,0)*11%),0)}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,61,71,0) 45%,rgba(0,61,71,.82) 100%)}
+.band figcaption{position:relative;z-index:1;padding:0 var(--pad) 34px;max-width:1080px;width:100%;margin:0 auto}
+.band figcaption b{display:block;font-family:var(--font-display);font-weight:400;font-size:clamp(30px,8.4vw,52px);line-height:1.12;max-width:14ch}
+.band figcaption span{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:10px}
+
+/* ==========================================================================
+   CARROUSELS D'ACTIVITÉS (scroll-snap + effets liés au défilement)
+   ========================================================================== */
+.acts{padding:84px 0 70px;background:var(--cream)}
+.acts.alt{background:#fff}
+.car{margin-top:34px;position:relative}
+.car-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px max(var(--pad),calc((100vw - min(78vw,340px))/2)) 22px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.car-track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 min(78vw,340px);scroll-snap-align:center;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden;transform:scale(calc(1 - var(--dist,0)*.06));opacity:calc(1 - var(--dist,0)*.4);transition:transform .2s linear,opacity .2s linear}
+.acts.alt .slide{background:var(--cream)}
+.slide-img{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--teal-deep)}
+.slide-img img{position:absolute;inset:0 -9%;width:118%;max-width:none;height:100%;object-fit:cover;transform:translate3d(calc(var(--px,0)*7%),0,0)}
+.slide-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,61,71,.28) 0%,rgba(0,61,71,0) 30%,rgba(0,61,71,0) 48%,rgba(0,61,71,.88) 100%)}
+.slide-num{position:absolute;top:14px;left:16px;z-index:1;font-family:var(--font-num);font-variant-numeric:lining-nums;font-size:22px;color:#fff}
+.slide-num::after{content:"";display:inline-block;width:26px;height:1px;background:var(--gold);vertical-align:middle;margin-left:10px}
+.slide h3{position:absolute;left:16px;right:16px;bottom:14px;z-index:1;font-family:var(--font-display);font-weight:400;font-size:27px;line-height:1.14;color:#fff;text-wrap:balance}
+.slide-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.slide-body p{font-size:14.5px;line-height:1.55;color:var(--ink)}
+.metas{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.meta{font-size:12px;font-weight:500;color:var(--teal-dark);background:rgba(0,138,149,.1);border-radius:999px;padding:4px 11px}
+.car-ui{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 var(--pad);max-width:1080px;margin:0 auto}
+.car-count{font-family:var(--font-num);font-variant-numeric:lining-nums;font-size:20px;color:var(--teal);min-width:74px}
+.car-count small{font-size:14px;color:var(--muted)}
+.car-dots{display:flex;gap:8px;flex:1;justify-content:center}
+.car-dots button{width:8px;height:8px;padding:0;border:0;border-radius:999px;background:rgba(13,59,66,.2);transition:width .3s ease-out,background .3s ease-out;position:relative}
+.car-dots button::after{content:"";position:absolute;inset:-14px -4px}
+.car-dots button[aria-current="true"]{width:26px;background:var(--gold)}
+.car-arrows{display:flex;gap:8px}
+.car-arrows button{width:44px;height:44px;border-radius:999px;border:1px solid var(--line);background:transparent;display:grid;place-items:center;transition:background .2s ease-out,color .2s ease-out}
+.car-arrows button:hover{background:var(--teal);color:#fff}
+.car-arrows svg{width:18px;height:18px}
+.also{margin-top:40px}
+.also h4{margin:0;font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}
+.also .chip{border-color:var(--line);color:var(--ink);background:#fff}
+
+/* ==========================================================================
+   TYPES DE GROUPES — jauge 4 → 50 et cartes empilées (sticky)
+   ========================================================================== */
+.groups{background:#fff;padding:84px 0 60px}
+.gauge{margin-top:34px;display:grid;gap:14px}
+.gauge-top{display:flex;align-items:baseline;gap:12px;font-family:var(--font-num);font-variant-numeric:lining-nums;color:var(--teal)}
+.gauge-top b{font-weight:400;font-size:54px;line-height:1;white-space:nowrap}
+.gauge-top span{font-family:var(--font-body);font-size:13.5px;color:var(--muted);line-height:1.4}
+.dots{display:grid;grid-template-columns:repeat(10,1fr);gap:7px;max-width:420px}
+.dots i{display:block;aspect-ratio:1;border-radius:50%;background:rgba(13,59,66,.1);transition:background .4s ease-out,transform .4s var(--ease);transition-delay:calc(var(--i)*26ms);transform:scale(.7)}
+.dots.in i{background:var(--teal);transform:none}
+.dots.in i.core{background:var(--gold)}
+.stack{margin-top:44px;display:grid;gap:16px}
+.gcard{position:sticky;top:calc(64px + var(--i)*14px);min-height:310px;padding:26px 22px 28px;border-radius:var(--radius);box-shadow:0 -6px 24px rgba(0,61,71,.12);display:flex;flex-direction:column;gap:12px;background:var(--cream)}
+.gcard:nth-child(2){background:var(--gold-pale)}
+.gcard:nth-child(3){background:var(--teal);color:#fff}
+.gcard:nth-child(4){background:var(--abyss);color:#fff}
+.gcard .gnum{font-family:var(--font-num);font-variant-numeric:lining-nums;font-size:18px;opacity:.7}
+.gcard h3{font-family:var(--font-display);font-weight:400;font-size:34px;line-height:1.1}
+.gcard .gmeta{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark)}
+.gcard:nth-child(n+3) .gmeta{color:var(--gold-light)}
+.gcard p{font-size:15px;line-height:1.55}
+.gcard .gfoot{margin-top:auto;padding-top:14px;border-top:1px solid currentColor;font-size:13.5px;font-weight:500;border-color:rgba(13,59,66,.18)}
+.gcard:nth-child(n+3) .gfoot{border-color:rgba(255,255,255,.28)}
+.case{margin-top:60px;display:grid;gap:0;background:var(--cream)}
+.case-img{overflow:hidden;aspect-ratio:3/2}
+.case-img img{width:100%;height:100%;object-fit:cover}
+.case-body{padding:24px 22px 28px}
+.case-body h3{font-family:var(--font-display);font-weight:400;font-size:28px;line-height:1.15;margin-top:10px}
+.case-list{display:grid;grid-template-columns:1fr 1fr;gap:16px 14px;margin-top:20px}
+.case-list b{display:block;font-family:var(--font-num);font-variant-numeric:lining-nums;font-weight:400;font-size:30px;line-height:1.05;color:var(--teal)}
+.case-list span{font-size:13px;color:var(--muted);line-height:1.4;display:block;margin-top:3px}
+
+/* ==========================================================================
+   DMC — fondateurs, chiffres, prestations, déroulé
+   ========================================================================== */
+.dmc{background:linear-gradient(160deg,var(--teal-deep) 0%,var(--abyss) 70%);padding:84px 0}
+.founders{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
+.founder img{width:100%;aspect-ratio:1;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+.founder b{display:block;font-family:var(--font-display);font-weight:400;font-size:21px;line-height:1.2;margin-top:12px}
+.founder span{display:block;font-size:12.5px;color:rgba(255,255,255,.72);line-height:1.4;margin-top:2px}
+.stats{display:grid;grid-template-columns:1fr 1fr;margin-top:44px;border-top:1px solid rgba(255,255,255,.2)}
+.stat{padding:24px 12px 24px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+.stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.2)}
+.stat:nth-child(even){padding-left:18px}
+.stat b{display:block;font-family:var(--font-num);font-variant-numeric:lining-nums;font-weight:400;font-size:52px;line-height:1;color:var(--gold);white-space:nowrap}
+.stat b small{font-size:.42em;margin-left:.12em}
+.stat span{display:block;font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.8);margin-top:8px}
+.incl{margin-top:54px}
+.incl h3,.steps-t{font-family:var(--font-display);font-weight:400;font-size:28px;line-height:1.15}
+.incl ul{margin-top:18px;display:grid;gap:0}
+.incl li{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.16);font-size:15px;line-height:1.45}
+.incl li svg{flex:none;width:20px;height:20px;margin-top:2px;color:var(--gold)}
+.incl .flights{margin-top:18px;font-size:14px;color:rgba(255,255,255,.75);max-width:48ch}
+.steps{margin-top:54px}
+.timeline{position:relative;margin-top:24px;padding-left:38px;display:grid;gap:30px}
+.timeline::before,.timeline::after{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:1px;background:rgba(255,255,255,.22)}
+.timeline::after{background:var(--gold);transform-origin:50% 0;transform:scaleY(var(--tp,0))}
+.step{position:relative}
+.step::before{content:attr(data-n);position:absolute;left:-38px;top:0;width:23px;height:23px;border-radius:50%;background:var(--abyss);border:1px solid var(--gold);color:var(--gold);font-size:11.5px;font-weight:600;display:grid;place-items:center;z-index:1}
+.step b{display:block;font-weight:500;font-size:16.5px;line-height:1.35}
+.step span{display:block;font-size:14px;color:rgba(255,255,255,.72);line-height:1.5;margin-top:3px}
+.team-photo{margin-top:54px;overflow:hidden;aspect-ratio:16/10}
+.team-photo img{width:100%;height:100%;object-fit:cover}
+
+/* ==========================================================================
+   FAQ
+   ========================================================================== */
+.faq{background:var(--cream);padding:84px 0}
+.faq-list{margin-top:30px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;font-family:var(--font-serif);font-size:20px;line-height:1.3;cursor:pointer;min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:14px;height:14px;background:linear-gradient(var(--teal),var(--teal)) 50%/100% 1.5px no-repeat,linear-gradient(var(--teal),var(--teal)) 50%/1.5px 100% no-repeat;transition:transform .3s ease-out}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 30px 22px 0;color:var(--muted);font-size:15px;max-width:60ch}
+
+/* ==========================================================================
+   FINAL — contact
+   ========================================================================== */
+.final{position:relative;min-height:100svh;overflow:hidden;background:var(--abyss);color:#fff;display:flex;align-items:flex-end}
+.final>img{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;will-change:transform;transform:translate3d(0,calc(var(--pp,0)*10%),0)}
+.final::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,61,71,.2) 0%,rgba(0,61,71,.55) 42%,rgba(0,61,71,.96) 100%)}
+.final-in{position:relative;z-index:1;width:100%;padding:120px 0 calc(34px + env(safe-area-inset-bottom))}
+.final .script{font-family:var(--font-script);font-size:clamp(40px,11.4vw,92px);line-height:1.15;color:var(--gold)}
+:lang(el) .final .script{font-family:var(--font-serif);font-style:italic;font-size:clamp(34px,9.5vw,64px)}
+.final h2{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,9.4vw,60px);line-height:1.12;max-width:14ch;margin-top:6px}
+.final p{margin-top:14px;color:rgba(255,255,255,.82);max-width:42ch}
+.btns{display:grid;gap:10px;margin-top:28px;max-width:420px}
+.btn{display:flex;align-items:center;gap:12px;min-height:54px;padding:12px 20px;border-radius:var(--radius);text-decoration:none;font-weight:500;font-size:15.5px;border:1px solid rgba(255,255,255,.4);transition:background .2s ease-out,border-color .2s ease-out}
+.btn svg{width:20px;height:20px;flex:none}
+.btn small{display:block;font-size:12px;font-weight:400;opacity:.75;line-height:1.3}
+.btn.primary{background:var(--gold);border-color:var(--gold);color:var(--abyss)}
+.btn.primary:hover{background:var(--gold-light);border-color:var(--gold-light)}
+.btn:not(.primary):hover{background:rgba(255,255,255,.12);border-color:#fff}
+.foot{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;font-size:11.5px;color:rgba(255,255,255,.6);line-height:1.5}
+.foot img{height:38px;width:auto}
+
+/* ==========================================================================
+   TABLETTE / ORDINATEUR
+   ========================================================================== */
+@media(min-width:760px){
+  :root{--pad:40px}
+  .section,.acts,.groups,.dmc,.faq{padding-top:120px;padding-bottom:120px}
+  .hero-in{padding-bottom:110px}
+  .hero-sub{font-size:18px}
+  .flight-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:end}
+  .weather{padding:64px 56px 48px;max-width:1000px;margin-left:auto;margin-right:auto}
+  .bars{height:260px;gap:16px}
+  .cities-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+  .facts,.stats{grid-template-columns:repeat(4,1fr)}
+  .fact,.stat{padding-left:22px!important;border-right:1px solid rgba(255,255,255,.2)}
+  .slide{flex-basis:340px}
+  .car-track{padding-left:max(var(--pad),calc((100vw - 1080px)/2 + var(--pad)));padding-right:max(var(--pad),calc((100vw - 1080px)/2 + var(--pad)))}
+  .stack{grid-template-columns:1fr 1fr}
+  .gcard{position:relative;top:auto}
+  .case{grid-template-columns:1.1fr 1fr;align-items:stretch}
+  .case-img{aspect-ratio:auto}
+  .founders{max-width:520px}
+  .dmc-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+  .btns{grid-template-columns:1fr 1fr;max-width:640px}
+}
+@media(max-width:759px){.car-arrows{display:none}}
+
+/* Mouvement réduit : tout est affiché, sans animation */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv,.js .rv-img img{opacity:1;transform:none;clip-path:none}
+  .ht-script{clip-path:none}.ht-main .ch{transform:none}
+  .ht-digits{color:var(--gold)}.ht-digits .dg span{transform:translateY(calc(var(--n)*-1em))}
+  .ht-year::after{transform:none}.hero-sub{opacity:1}.hero-kicker::before{width:40px}
+  .hero-bg,.hero-in,.band img,.final>img,.sun{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<main>
+
+<!-- ======================================================================
+     HERO
+     ====================================================================== -->
+<header class="hero" id="hero">
+  <div class="hero-bg"><img src="destination/img/hero.webp" alt="" width="1600" height="1068" fetchpriority="high"></div>
+  <div class="hero-top">
+    <a class="hero-logo" href="https://www.kerkyra.fr" aria-label="Kerkyra Work & Play"><img src="destination/img/logo-blanc.webp" alt="Kerkyra Work & Play" width="520" height="161"></a>
+    <div class="langsw" role="group" aria-label="Langue / Language" id="langSwitch">
+      <button type="button" data-lang="fr">FR</button>
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="gr">ΕΛ</button>
+    </div>
+  </div>
+  <div class="hero-in">
+    <p class="hero-kicker" data-i18n="heroKicker"></p>
+    <h1 class="hero-title" id="heroTitle"></h1>
+    <p class="hero-sub" data-i18n="heroSub"></p>
+  </div>
+  <div class="hero-coords" aria-hidden="true">39°37′N — 19°55′E</div>
+  <div class="hero-scroll" aria-hidden="true"><span data-i18n="heroScroll"></span><i></i></div>
+</header>
+
+<!-- ======================================================================
+     MANIFESTE
+     ====================================================================== -->
+<section class="manifesto">
+  <div class="wrap">
+    <p class="words" id="manifestoWords"></p>
+    <p class="sign rv">Constance &amp; Michaël<small data-i18n="manifestoSign"></small></p>
+  </div>
+</section>
+
+<!-- ======================================================================
+     INFOGRAPHIES : VOL, MÉTÉO, VILLES, REPÈRES
+     ====================================================================== -->
+<section class="section figures on-dark" id="chiffres">
+  <div class="wrap">
+    <p class="eyebrow rv" data-i18n="figEyebrow"></p>
+    <h2 class="h2 rv" data-i18n-html="figTitle"></h2>
+
+    <!-- Vol direct -->
+    <div class="flight flight-grid" id="flight">
+      <div>
+        <div class="big rv" id="flightTime" aria-live="off">0<small>h</small>00</div>
+        <p class="big-label rv" data-i18n="flightLabel"></p>
+        <p class="note rv" data-i18n="flightNote"></p>
+      </div>
+      <svg viewBox="0 0 340 170" aria-hidden="true">
+        <path class="arc-bg" d="M26,132 Q170,-36 314,118"/>
+        <path class="arc" id="flightArc" d="M26,132 Q170,-36 314,118"/>
+        <circle cx="26" cy="132" r="4.5" fill="#fff"/>
+        <circle cx="314" cy="118" r="5.5" fill="#e0b12a"/>
+        <text x="14" y="154" data-i18n="cityParis"></text>
+        <text class="sub" x="14" y="166">ORY · CDG</text>
+        <text x="326" y="142" text-anchor="end" data-i18n="cityCorfu"></text>
+        <text class="sub" x="326" y="154" text-anchor="end">CFU</text>
+        <g id="flightPlane"><path d="M10,0 L-6,-6 L-3,0 L-6,6 Z" fill="#fff"/></g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Météo -->
+  <div class="weather" id="weather">
+    <div class="sun" aria-hidden="true">
+      <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="46" fill="#e0b12a"/><g stroke="#e0b12a" stroke-width="3" stroke-linecap="round" id="sunRays"></g></svg>
+    </div>
+    <p class="eyebrow rv" data-i18n="wxEyebrow"></p>
+    <h3 class="rv" data-i18n="wxTitle"></h3>
+    <div class="bars" id="weatherBars" role="img"></div>
+    <div class="legend"><span class="lg-best" data-i18n="wxBest"></span><span data-i18n="wxOther"></span></div>
+    <div class="wfacts">
+      <div class="rv"><b id="wxSea"></b><span data-i18n="wxSeaLabel"></span></div>
+      <div class="rv" style="--d:1"><b id="wxMid"></b><span data-i18n="wxMidLabel"></span></div>
+    </div>
+    <p class="fine" data-i18n="wxFine"></p>
+  </div>
+
+  <!-- 13 villes -->
+  <div class="wrap cities cities-grid">
+    <div>
+      <div class="big rv"><span data-count="cities">0</span></div>
+      <p class="big-label rv" data-i18n="citiesLabel"></p>
+      <p class="note rv" data-i18n="citiesNote"></p>
+      <div id="cityChips"></div>
+      <a class="linkline rv" href="./"><span data-i18n="citiesLink"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="map" id="cityMap">
+      <svg viewBox="88 8 708 552" role="img" aria-hidden="true">
+        <path class="land" d="M605.6,500.2 L593.8,540.0 L577.7,529.5 L569.5,494.9 L576.7,475.7 L599.5,456.0 L605.6,500.2 ZM393.5,76.5 L418.3,100.7 L436.5,96.7 L467.6,120.2 L475.5,124.7 L485.8,123.6 L502.5,137.1 L553.7,146.6 L535.8,181.8 L531.2,218.5 L521.5,227.3 L505.3,222.6 L506.5,235.7 L480.5,264.6 L480.0,288.0 L496.9,279.9 L509.1,302.5 L507.7,317.0 L518.1,336.4 L505.8,352.1 L514.9,391.9 L534.2,398.5 L530.1,420.8 L498.0,449.9 L427.9,436.0 L376.2,452.7 L372.2,483.7 L331.0,490.4 L291.1,467.1 L278.1,478.2 L212.8,454.8 L198.6,434.8 L217.0,403.9 L223.8,301.3 L187.1,247.2 L160.9,221.1 L106.7,201.3 L103.1,163.8 L149.1,152.6 L208.7,165.8 L197.5,107.5 L231.0,129.6 L313.7,89.4 L324.3,47.2 L355.4,36.8 L360.5,54.9 L377.0,55.8 L393.5,76.5 Z"/>
+        <path class="land" d="M606.8,223.5 L608.2,232.6 L602.7,245.2 L618.8,254.6 L636.9,256.0 L634.1,277.1 L618.5,285.8 L592.2,279.3 L584.5,300.1 L567.6,301.8 L561.4,293.6 L541.5,311.1 L524.4,313.5 L509.1,302.5 L496.9,279.9 L480.0,288.0 L480.5,264.6 L506.5,235.7 L505.3,222.6 L521.5,227.3 L531.2,218.5 L561.4,218.9 L568.7,207.7 L606.8,223.5 Z"/>
+        <path class="land" d="M383.8,26.7 L409.8,30.7 L442.7,20.0 L465.2,42.5 L484.7,54.6 L480.7,89.4 L471.4,91.3 L467.6,120.2 L436.5,96.7 L418.3,100.7 L393.5,76.5 L377.0,55.8 L360.5,54.9 L355.4,36.8 L383.8,26.7 Z"/>
+        <path class="land" d="M480.7,89.4 L487.8,101.0 L485.8,123.6 L475.5,124.7 L467.6,120.2 L471.4,91.3 L480.7,89.4 Z"/>
+        <g id="mapRoutes"></g>
+        <circle class="cfu-ring" cx="742" cy="486" r="8"/>
+        <circle class="cfu" cx="742" cy="486" r="8"/>
+        <text x="742" y="524" text-anchor="middle" data-i18n="cityCorfu"></text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Repères -->
+  <div class="wrap">
+    <div class="facts" id="facts"></div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     BANDEAU PHOTO : VIEILLE VILLE
+     ====================================================================== -->
+<figure class="band" data-parallax>
+  <img src="destination/img/vieille-ville.webp" alt="" loading="lazy" width="1200" height="799">
+  <figcaption><span class="rv" data-i18n="band1Kicker"></span><b class="rv" data-i18n="band1Title"></b></figcaption>
+</figure>
+
+<!-- ======================================================================
+     CARROUSEL 1 : LES INCONTOURNABLES
+     ====================================================================== -->
+<section class="acts" id="incontournables">
+  <div class="wrap">
+    <p class="eyebrow rv" data-i18n="mustEyebrow"></p>
+    <h2 class="h2 rv" data-i18n-html="mustTitle"></h2>
+    <p class="lead rv" data-i18n="mustLead"></p>
+  </div>
+  <div class="car" data-carousel="must"></div>
+</section>
+
+<!-- ======================================================================
+     CARROUSEL 2 : LES EXTRAS
+     ====================================================================== -->
+<section class="acts alt" id="extras">
+  <div class="wrap">
+    <p class="eyebrow rv" data-i18n="extraEyebrow"></p>
+    <h2 class="h2 rv" data-i18n-html="extraTitle"></h2>
+    <p class="lead rv" data-i18n="extraLead"></p>
+  </div>
+  <div class="car" data-carousel="extra"></div>
+  <div class="wrap also">
+    <h4 class="rv" data-i18n="alsoTitle"></h4>
+    <div class="chips" id="alsoChips"></div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     BANDEAU PHOTO : LEVER DE SOLEIL
+     ====================================================================== -->
+<figure class="band" data-parallax>
+  <img src="destination/img/lever-soleil.webp" alt="" loading="lazy" width="1600" height="810">
+  <figcaption><span class="rv" data-i18n="band2Kicker"></span><b class="rv" data-i18n="band2Title"></b></figcaption>
+</figure>
+
+<!-- ======================================================================
+     TYPES DE GROUPES
+     ====================================================================== -->
+<section class="groups" id="groupes">
+  <div class="wrap">
+    <p class="eyebrow rv" data-i18n="grpEyebrow"></p>
+    <h2 class="h2 rv" data-i18n-html="grpTitle"></h2>
+    <div class="gauge">
+      <div class="gauge-top rv"><b id="gaugeRange"></b><span data-i18n="grpGauge"></span></div>
+      <div class="dots" id="gaugeDots" aria-hidden="true"></div>
+    </div>
+    <div class="stack" id="groupStack"></div>
+
+    <!-- Cas réel -->
+    <div class="case">
+      <div class="case-img rv-img"><img src="destination/img/dmc-seminaire.webp" alt="" loading="lazy" width="1080" height="720"></div>
+      <div class="case-body">
+        <p class="eyebrow rv" data-i18n="caseEyebrow"></p>
+        <h3 class="rv" data-i18n="caseTitle"></h3>
+        <div class="case-list" id="caseList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     NOTRE DMC
+     ====================================================================== -->
+<section class="dmc on-dark" id="dmc">
+  <div class="wrap">
+    <p class="eyebrow rv" data-i18n="dmcEyebrow"></p>
+    <h2 class="h2 rv" data-i18n-html="dmcTitle"></h2>
+    <p class="lead rv" data-i18n="dmcLead"></p>
+    <div class="founders" id="founders"></div>
+    <div class="stats" id="dmcStats"></div>
+    <div class="dmc-grid">
+      <div class="incl">
+        <h3 class="rv" data-i18n="inclTitle"></h3>
+        <ul id="inclList"></ul>
+        <p class="flights rv" data-i18n="inclFlights"></p>
+      </div>
+      <div class="steps">
+        <h3 class="steps-t rv" data-i18n="stepsTitle"></h3>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+    </div>
+    <div class="team-photo rv-img"><img src="destination/img/dmc-groupe.webp" alt="" loading="lazy" width="1400" height="847"></div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     FAQ
+     ====================================================================== -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <p class="eyebrow rv" data-i18n="faqEyebrow"></p>
+    <h2 class="h2 rv" data-i18n-html="faqTitle"></h2>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     FINAL : CONTACT
+     ====================================================================== -->
+<section class="final" id="contact" data-parallax>
+  <img src="destination/img/porto-timoni.webp" alt="" loading="lazy" width="1200" height="800">
+  <div class="final-in">
+    <div class="wrap">
+      <p class="script rv" data-i18n="finalScript"></p>
+      <h2 class="rv" data-i18n="finalTitle"></h2>
+      <p class="rv" data-i18n="finalText"></p>
+      <div class="btns" id="contactBtns"></div>
+      <div class="foot">
+        <img src="destination/img/logo-blanc.webp" alt="Kerkyra Work & Play" loading="lazy" width="520" height="161">
+        <span id="footLegal"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+/* ==========================================================================
+   CONFIG — toutes les données modifiables (chiffres, villes, activités, contact)
+   ========================================================================== */
+const CONFIG = {
+  defaultLang: 'fr',
+  year: '2027',
+  imgPath: 'destination/img/',
+  // Vol direct Paris → Corfou, en minutes (source : kerkyra.fr, article « Vol Paris-Corfou »)
+  flightMinutes: 165,
+  // Maximales moyennes mensuelles en °C (indicatives). best = mois conseillés pour un groupe.
+  weather: [
+    { month: 4, temp: 19, best: false },
+    { month: 5, temp: 24, best: true },
+    { month: 6, temp: 28, best: true },
+    { month: 7, temp: 31, best: false },
+    { month: 8, temp: 31, best: false },
+    { month: 9, temp: 28, best: true },
+    { month: 10, temp: 23, best: true }
+  ],
+  weatherScale: { min: 10, max: 32 },
+  seaTempOctober: 22,
+  midSeasonRange: [20, 29],
+  // Villes reliées en direct (x, y = position sur la carte, repris de la page vols)
+  cities: [
+    { id: 'PAR', country: 'FR', x: 349.7, y: 154.9 },
+    { id: 'LYS', country: 'FR', x: 437.8, y: 314.2 },
+    { id: 'MRS', country: 'FR', x: 456.8, y: 441.3 },
+    { id: 'TLS', country: 'FR', x: 317.4, y: 425.4 },
+    { id: 'BOD', country: 'FR', x: 245.6, y: 361.9 },
+    { id: 'NTE', country: 'FR', x: 211.0, y: 239.3 },
+    { id: 'LIL', country: 'FR', x: 374.7, y: 63.6 },
+    { id: 'SXB', country: 'FR', x: 541.4, y: 169.5 },
+    { id: 'BSL', country: 'FR', x: 533.5, y: 220.1 },
+    { id: 'BRU', country: 'BE', x: 420.6, y: 52.2 },
+    { id: 'LUX', country: 'LU', x: 483.8, y: 116.0 },
+    { id: 'GVA', country: 'CH', x: 484.3, y: 291.5 },
+    { id: 'ZRH', country: 'CH', x: 569.4, y: 231.1 }
+  ],
+  countries: ['FR', 'BE', 'LU', 'CH'],
+  corfuOnMap: { x: 742, y: 486 },
+  // Repères : valeur affichée + clé de libellé
+  facts: [
+    { value: '+1 h', key: 'factTz' },
+    { value: '217 km', key: 'factCoast' },
+    { value: '5G', key: 'fact5g' },
+    { value: '2007', key: 'factUnesco' }
+  ],
+  // Activités. meta = [modèle de libellé, valeur]
+  activities: {
+    must: [
+      { id: 'catamaran', img: 'act-catamaran.webp', meta: [['mHours', '6']] },
+      { id: 'quad', img: 'act-quad.webp', meta: [['mHours', '3 – 6']] },
+      { id: 'vespa', img: 'act-vespa.webp', meta: [['mHoursAbout', '6']] },
+      { id: 'oliveraie', img: 'act-oliveraie.webp', meta: [['mHours', '3 – 5'], ['mPeople', '4 – 25']] },
+      { id: 'chasse', img: 'act-chasse.webp', meta: [['mHours', '1 h 30 – 3']] }
+    ],
+    extra: [
+      { id: 'gala', img: 'extra-gala.webp', meta: [['mHours', '4 – 6']] },
+      { id: 'centans', img: 'extra-100ans.webp', meta: [['mHours', '4 – 6'], ['mPeople', '10 – 50']] },
+      { id: 'rando', img: 'extra-rando.webp', meta: [['mHours', '7 – 8']] },
+      { id: 'moto', img: 'extra-moto.webp', meta: [['mDays', '4']] }
+    ],
+    also: ['alsoAlbania', 'alsoSunset', 'alsoPetanque', 'alsoCooking', 'alsoTasting', 'alsoFarm']
+  },
+  // Groupes
+  groupMin: 4,
+  groupMax: 50,
+  incentivePriceFrom: '1 500 €',
+  groups: ['direction', 'incentive', 'team', 'hybride'],
+  caseStudy: [
+    { value: '15', key: 'casePeople' },
+    { value: '4 / 3', key: 'caseDays' },
+    { value: '6', key: 'caseExp' },
+    { value: '1', key: 'caseBus' }
+  ],
+  // DMC
+  founders: [
+    { name: 'Constance Decré', img: 'constance.webp', key: 'founderConstance' },
+    { name: 'Michaël Boudot', img: 'michael.webp', key: 'founderMichael' }
+  ],
+  stats: [
+    { value: '+15', key: 'statGroups' },
+    { value: '48', unit: 'h', key: 'statQuote' },
+    { value: '20', unit: 'min', key: 'statCall' },
+    { value: '1', key: 'statContact' }
+  ],
+  included: ['inclProgram', 'inclHotel', 'inclTransfer', 'inclFood', 'inclGuides', 'inclOnsite', 'inclFile'],
+  steps: ['step1', 'step2', 'step3', 'step4'],
+  faq: ['faqWhen', 'faqNights', 'faqAdvance', 'faqIncluded', 'faqSporty', 'faqArrival', 'faqFlights'],
+  // Contact
+  contact: {
+    whatsapp: '33753070616',
+    whatsappLabel: '+33 7 53 07 06 16',
+    email: 'hello@kerkyra.fr',
+    instagram: 'kerkyra_workplay',
+    website: 'https://www.kerkyra.fr',
+    websiteLabel: 'kerkyra.fr',
+    legal: 'KERKYRA WORK & PLAY Ι.Κ.Ε. — Leoforos Alexandras 20, 49132 Corfou, Grèce'
+  }
+};
+
+/* ==========================================================================
+   TRANSLATIONS — FR (défaut) / EN / GR
+   Variables : {flight} {cities} {min} {max} {price} {year}
+   ========================================================================== */
+const TRANSLATIONS = {
+  fr: {
+    htmlLang: 'fr',
+    heroKicker: 'Kerkyra Work & Play · Agence réceptive',
+    heroScript: 'Destination', heroMain: 'Corfou',
+    heroSub: 'Séminaires, incentives et team buildings sur une île grecque, à {flight} de Paris.',
+    heroScroll: 'Faites défiler',
+    manifesto: 'Une île grecque à moins de *trois* *heures* *de* *vol*, où l’on travaille le matin, où l’on embarque l’après-midi et où l’on dîne *sous* *les* *oliviers*.',
+    manifestoSign: 'Fondateurs, installés à l’année à Corfou',
+    figEyebrow: 'L’île en chiffres',
+    figTitle: 'Loin de tout, <em>près</em> de vous',
+    flightLabel: 'de vol direct depuis Paris',
+    flightNote: 'Orly ou Roissy, presque tous les jours en saison. Une heure de décalage à l’arrivée, et l’aéroport à 3 km du centre historique.',
+    cityParis: 'PARIS', cityCorfu: 'CORFOU',
+    wxEyebrow: 'Météo',
+    wxTitle: 'Le soleil, d’avril à octobre',
+    wxBarsLabel: 'Températures maximales moyennes à Corfou, d’avril à octobre',
+    wxBest: 'Nos mois préférés pour un groupe',
+    wxOther: 'Possibles aussi',
+    wxSeaLabel: 'la mer début octobre : on se baigne encore',
+    wxMidLabel: 'à la mi-saison, quand l’île est calme',
+    wxFine: 'Maximales moyennes en °C, données indicatives.',
+    months: { 4: 'Avr', 5: 'Mai', 6: 'Juin', 7: 'Juil', 8: 'Août', 9: 'Sept', 10: 'Oct' },
+    citiesLabel: 'villes francophones reliées en direct',
+    citiesNote: 'France, Belgique, Luxembourg, Suisse : chacun décolle de chez lui, tout le monde se retrouve à Corfou.',
+    citiesLink: 'Tous les vols, ville par ville',
+    countryNames: { FR: 'France', BE: 'Belgique', LU: 'Luxembourg', CH: 'Suisse' },
+    cityNames: { PAR: 'Paris', LYS: 'Lyon', MRS: 'Marseille', TLS: 'Toulouse', BOD: 'Bordeaux', NTE: 'Nantes', LIL: 'Lille', SXB: 'Strasbourg', BSL: 'Bâle-Mulhouse', BRU: 'Bruxelles', LUX: 'Luxembourg', GVA: 'Genève', ZRH: 'Zurich' },
+    factTz: 'de décalage horaire, toute l’année',
+    factCoast: 'de côtes, des criques aux longues plages',
+    fact5g: 'sur toute l’île, pour travailler partout',
+    factUnesco: 'la vieille ville entre à l’UNESCO',
+    band1Kicker: 'Vieille ville de Corfou',
+    band1Title: 'Des ruelles vénitiennes, classées à l’UNESCO',
+    mustEyebrow: 'Activités',
+    mustTitle: 'Nos <em>incontournables</em>',
+    mustLead: 'Les cinq expériences que nos groupes redemandent, toutes privatisables.',
+    extraEyebrow: 'Pour aller plus loin',
+    extraTitle: 'Les <em>extras</em>',
+    extraLead: 'Ce que l’on ajoute quand le séjour doit marquer les esprits.',
+    alsoTitle: 'Et aussi',
+    act: {
+      catamaran: ['Virée en catamaran', 'Six heures en mer vers Paxos ou la côte nord-est, avec baignade au mouillage. Boissons et snacks à bord.'],
+      quad: ['Quad hors des sentiers', 'Une boucle off-road avec déjeuner, visite d’une oliveraie et dégustation de vin.'],
+      vespa: ['Road trip en Vespa', 'Corfou à l’italienne : les routes de corniche, puis un déjeuner les pieds dans l’eau.'],
+      oliveraie: ['Dîner mezze dans l’oliveraie', 'Une table privée au milieu d’oliviers centenaires, après la visite de la ferme et la dégustation d’huile d’olive.'],
+      chasse: ['Chasse au trésor', 'Sur les traces de saint Spyridon dans la vieille ville, énigmes à l’appui. Idéale le jour de l’arrivée.'],
+      gala: ['Gala Wild Feast', 'Un dîner de gala sur une plage privée, pieds nus dans le sable, avec un chef qui cuisine au feu devant vous.'],
+      centans: ['Corfou il y a 100 ans', 'Une soirée dans un village reconstitué façon années 30 : musique live, puis DJ jusqu’à 3 h du matin.'],
+      rando: ['Randonnée évasion', 'Le sentier du littoral jusqu’à Kassiopi, avec baignade et escale gourmande en chemin.'],
+      moto: ['Moto trip', 'Quatre jours de route entre mer et montagnes, pour les équipes qui ont le permis et l’envie.']
+    },
+    mHours: '{v} h', mHoursAbout: 'environ {v} h', mPeople: '{v} pers.', mDays: '{v} jours',
+    alsoAlbania: 'Évasion en Albanie', alsoSunset: 'Croisière privée au coucher du soleil', alsoPetanque: 'Challenge pétanque face au vieux port',
+    alsoCooking: 'Cours de cuisine grecque', alsoTasting: 'Dégustations de vins et d’huiles d’olive', alsoFarm: 'Déjeuner « Farm to Table »',
+    slideOf: 'sur',
+    prev: 'Précédent', next: 'Suivant',
+    band2Kicker: 'Nord de l’île',
+    band2Title: 'Trois jours suffisent pour couper',
+    grpEyebrow: 'Types de groupes',
+    grpTitle: 'Quatre formats, une seule <em>équipe</em>',
+    grpGauge: 'participants. Au-delà, nous alternons en sous-groupes.',
+    grp: {
+      direction: ['Séminaire de direction', 'Comités restreints', 'Un hôtel de standing, une journée de travail en salle, puis un dîner privé dans une oliveraie centenaire.', 'Pour décider au calme'],
+      incentive: ['Voyage incentive', '10 à 50 personnes · 4 jours / 3 nuits', 'Catamaran vers Paxos, quad, dîner de gala sur une plage privée. Du jeudi au dimanche, pour récompenser une équipe.', 'À partir de {price} par personne, hors vols'],
+      team: ['Team building', '8 à 50 personnes · de 1 h 30 à 2 jours', 'Chasse au trésor, tournoi de pétanque, soirée dans un village des années 30. Pas besoin d’être sportif.', 'Pour souder une équipe'],
+      hybride: ['Séjour hybride', '3 jours · le plus demandé', 'Sessions de travail le matin, activité l’après-midi, soirée ensemble. Le format que les entreprises nous demandent le plus.', 'Travail le matin, île l’après-midi']
+    },
+    caseEyebrow: 'Cas réel · octobre 2026',
+    caseTitle: 'Une équipe partie de Nantes, moins de trois heures de vol',
+    casePeople: 'participants', caseDays: 'jours / nuits', caseExp: 'expériences, dont 3 privatisées', caseBus: 'seul minibus pour tous les transferts',
+    dmcEyebrow: 'Notre agence réceptive',
+    dmcTitle: 'Deux Français qui vivent <em>ici</em>',
+    dmcLead: 'Kerkyra Work & Play est une agence réceptive (DMC) basée à Corfou. Vous avez un interlocuteur unique, en français, du premier appel au dernier transfert.',
+    founderConstance: 'MICE et agences événementielles', founderMichael: 'Séminaires Work & Play',
+    statGroups: 'groupes accompagnés à Corfou', statQuote: 'pour recevoir votre devis', statCall: 'd’échange pour cadrer le projet', statContact: 'interlocuteur, en français',
+    inclTitle: 'Ce que nous prenons en charge',
+    inclProgram: 'Un programme sur-mesure', inclHotel: 'L’hébergement : villas et hôtels partenaires', inclTransfer: 'Les transferts privés, du minibus à l’autocar de 50 places',
+    inclFood: 'La restauration, menus et régimes compris', inclGuides: 'Les activités et les guides francophones', inclOnsite: 'L’accompagnement sur place',
+    inclFile: 'Un dossier technique avant le départ : contacts, rooming, déroulé heure par heure',
+    inclFlights: 'Les vols restent à votre main : nous vous orientons, puis nous prenons le relais à l’atterrissage.',
+    stepsTitle: 'Comment ça se passe',
+    step1: ['Un échange de 20 minutes', 'Vos dates, votre groupe, votre objectif.'],
+    step2: ['Votre devis sous 48 heures', 'Programme, hébergement et budget par participant.'],
+    step3: ['Validation et signature électronique', 'Acompte à la confirmation, solde avant l’arrivée.'],
+    step4: ['Nous vous accueillons à l’aéroport', 'Et nous restons avec vous jusqu’au départ.'],
+    faqEyebrow: 'Avant de partir',
+    faqTitle: 'Les questions qu’on nous <em>pose</em>',
+    faqWhen: ['Quand partir ?', 'Au printemps (mai et juin) ou à l’automne (septembre et octobre). L’été reste possible, avec plus de chaleur et plus de monde.'],
+    faqNights: ['Deux ou trois nuits ?', 'Trois. Elles amortissent mieux le vol et laissent le temps de travailler, puis de souffler.'],
+    faqAdvance: ['Combien de temps à l’avance ?', 'Prévoyez plus que les deux à trois mois habituels pour un séminaire en France, et réservez les vols dès que les dates sont fixées.'],
+    faqIncluded: ['Que comprend le forfait ?', 'L’hébergement avec petit-déjeuner, les transferts, une partie des repas, les activités et l’accompagnement. Les vols, les extras et l’assurance sont à part.'],
+    faqSporty: ['Faut-il être sportif ?', 'Non, pour la plupart des activités. Nous prévoyons des formats variés et des rôles moins exposés pour ceux qui le préfèrent.'],
+    faqArrival: ['Peut-on prévoir une activité le jour de l’arrivée ?', 'Oui, si elle est courte et proche : une chasse au trésor en vieille ville ou une croisière au coucher du soleil.'],
+    faqFlights: ['Réservez-vous les vols du groupe ?', 'Non. Nous vous indiquons les meilleures liaisons depuis votre ville, et nous prenons le relais dès l’atterrissage.'],
+    finalScript: 'On vous emmène ?',
+    finalTitle: 'Parlons de votre Corfou {year}',
+    finalText: 'Vingt minutes suffisent pour cadrer votre projet. Votre devis arrive sous 48 heures.',
+    btnWhatsapp: 'Écrire sur WhatsApp', btnEmail: 'Envoyer un e-mail', btnInstagram: 'Nous suivre sur Instagram', btnWebsite: 'Voir le site'
+  },
+
+  en: {
+    htmlLang: 'en',
+    heroKicker: 'Kerkyra Work & Play · Destination management',
+    heroScript: 'Destination', heroMain: 'Corfu',
+    heroSub: 'Seminars, incentives and team building on a Greek island, {flight} from Paris.',
+    heroScroll: 'Scroll',
+    manifesto: 'A Greek island *under* *three* *hours* *away*, where you work in the morning, set sail in the afternoon and dine *under* *the* *olive* *trees*.',
+    manifestoSign: 'Founders, living in Corfu all year round',
+    figEyebrow: 'The island in numbers',
+    figTitle: 'Far from everything, <em>close</em> to you',
+    flightLabel: 'direct flight from Paris',
+    flightNote: 'From Orly or Roissy, almost every day in season. One hour ahead on arrival, and the airport is 3 km from the old town.',
+    cityParis: 'PARIS', cityCorfu: 'CORFU',
+    wxEyebrow: 'Weather',
+    wxTitle: 'Sunshine, April to October',
+    wxBarsLabel: 'Average high temperatures in Corfu, April to October',
+    wxBest: 'Our favourite months for a group',
+    wxOther: 'Also possible',
+    wxSeaLabel: 'the sea in early October: still warm enough to swim',
+    wxMidLabel: 'in shoulder season, when the island is quiet',
+    wxFine: 'Average highs in °C, indicative figures.',
+    months: { 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct' },
+    citiesLabel: 'French-speaking cities with a direct flight',
+    citiesNote: 'France, Belgium, Luxembourg, Switzerland: everyone takes off from home and meets in Corfu.',
+    citiesLink: 'All flights, city by city',
+    countryNames: { FR: 'France', BE: 'Belgium', LU: 'Luxembourg', CH: 'Switzerland' },
+    cityNames: { PAR: 'Paris', LYS: 'Lyon', MRS: 'Marseille', TLS: 'Toulouse', BOD: 'Bordeaux', NTE: 'Nantes', LIL: 'Lille', SXB: 'Strasbourg', BSL: 'Basel-Mulhouse', BRU: 'Brussels', LUX: 'Luxembourg', GVA: 'Geneva', ZRH: 'Zurich' },
+    factTz: 'time difference, all year round',
+    factCoast: 'of coastline, from coves to long beaches',
+    fact5g: 'across the island, to work anywhere',
+    factUnesco: 'the old town becomes a UNESCO site',
+    band1Kicker: 'Corfu old town',
+    band1Title: 'Venetian lanes, listed by UNESCO',
+    mustEyebrow: 'Activities',
+    mustTitle: 'Our <em>essentials</em>',
+    mustLead: 'The five experiences our groups ask for again, all available privately.',
+    extraEyebrow: 'Going further',
+    extraTitle: 'The <em>extras</em>',
+    extraLead: 'What we add when the trip has to be remembered.',
+    alsoTitle: 'And also',
+    act: {
+      catamaran: ['Catamaran day', 'Six hours at sea towards Paxos or the north-east coast, with a swim at anchor. Drinks and snacks on board.'],
+      quad: ['Off-road quad ride', 'An off-road loop with lunch, an olive grove visit and a wine tasting.'],
+      vespa: ['Vespa road trip', 'Corfu the Italian way: coastal roads, then lunch with your feet in the water.'],
+      oliveraie: ['Mezze dinner in the olive grove', 'A private table among century-old olive trees, after a tour of the farm and an olive oil tasting.'],
+      chasse: ['Treasure hunt', 'In the footsteps of Saint Spyridon through the old town, riddles included. Ideal on arrival day.'],
+      gala: ['Wild Feast gala', 'A gala dinner on a private beach, barefoot in the sand, with a chef cooking over the fire in front of you.'],
+      centans: ['Corfu 100 years ago', 'An evening in a village rebuilt in 1930s style: live music, then a DJ until 3 am.'],
+      rando: ['Coastal hike', 'The coastal path to Kassiopi, with a swim and a food stop along the way.'],
+      moto: ['Motorbike trip', 'Four days on the road between sea and mountains, for teams with a licence and the appetite.']
+    },
+    mHours: '{v} h', mHoursAbout: 'about {v} h', mPeople: '{v} people', mDays: '{v} days',
+    alsoAlbania: 'Escape to Albania', alsoSunset: 'Private sunset cruise', alsoPetanque: 'Pétanque challenge by the old port',
+    alsoCooking: 'Greek cooking class', alsoTasting: 'Wine and olive oil tastings', alsoFarm: 'Farm-to-table lunch',
+    slideOf: 'of',
+    prev: 'Previous', next: 'Next',
+    band2Kicker: 'North of the island',
+    band2Title: 'Three days are enough to switch off',
+    grpEyebrow: 'Group types',
+    grpTitle: 'Four formats, one <em>team</em>',
+    grpGauge: 'participants. Beyond that, we rotate sub-groups.',
+    grp: {
+      direction: ['Executive seminar', 'Small committees', 'A high-end hotel, a working day in a meeting room, then a private dinner in a century-old olive grove.', 'To decide in peace'],
+      incentive: ['Incentive trip', '10 to 50 people · 4 days / 3 nights', 'Catamaran to Paxos, quads, a gala dinner on a private beach. Thursday to Sunday, to reward a team.', 'From {price} per person, flights excluded'],
+      team: ['Team building', '8 to 50 people · from 1 h 30 to 2 days', 'Treasure hunt, pétanque tournament, an evening in a 1930s village. No need to be sporty.', 'To bring a team together'],
+      hybride: ['Hybrid stay', '3 days · most requested', 'Work sessions in the morning, an activity in the afternoon, the evening together. The format companies ask us for most.', 'Work in the morning, island in the afternoon']
+    },
+    caseEyebrow: 'Real case · October 2026',
+    caseTitle: 'A team flying from Nantes, under three hours away',
+    casePeople: 'participants', caseDays: 'days / nights', caseExp: 'experiences, 3 of them private', caseBus: 'single minibus for every transfer',
+    dmcEyebrow: 'Our DMC',
+    dmcTitle: 'Two French founders who live <em>here</em>',
+    dmcLead: 'Kerkyra Work & Play is a destination management company based in Corfu. You have a single point of contact, from the first call to the last transfer.',
+    founderConstance: 'MICE and event agencies', founderMichael: 'Work & Play seminars',
+    statGroups: 'groups hosted in Corfu', statQuote: 'to receive your quote', statCall: 'call to frame the project', statContact: 'point of contact',
+    inclTitle: 'What we take care of',
+    inclProgram: 'A tailor-made programme', inclHotel: 'Accommodation: partner villas and hotels', inclTransfer: 'Private transfers, from minibus to 50-seat coach',
+    inclFood: 'Catering, menus and dietary needs included', inclGuides: 'Activities and guides', inclOnsite: 'On-site support',
+    inclFile: 'A technical file before departure: contacts, rooming list, hour-by-hour schedule',
+    inclFlights: 'Flights stay in your hands: we point you to the right routes, then take over on landing.',
+    stepsTitle: 'How it works',
+    step1: ['A 20-minute call', 'Your dates, your group, your goal.'],
+    step2: ['Your quote within 48 hours', 'Programme, accommodation and budget per participant.'],
+    step3: ['Approval and e-signature', 'Deposit on confirmation, balance before arrival.'],
+    step4: ['We meet you at the airport', 'And we stay with you until departure.'],
+    faqEyebrow: 'Before you go',
+    faqTitle: 'The questions we get <em>asked</em>',
+    faqWhen: ['When should we go?', 'In spring (May and June) or autumn (September and October). Summer is possible too, with more heat and more people.'],
+    faqNights: ['Two nights or three?', 'Three. They make the flight worthwhile and leave time to work, then to breathe.'],
+    faqAdvance: ['How far ahead should we plan?', 'Allow more than the usual two to three months for a seminar at home, and book flights as soon as the dates are set.'],
+    faqIncluded: ['What does the package include?', 'Accommodation with breakfast, transfers, some of the meals, activities and on-site support. Flights, extras and insurance are separate.'],
+    faqSporty: ['Do we need to be sporty?', 'No, for most activities. We plan varied formats and quieter roles for those who prefer them.'],
+    faqArrival: ['Can we plan an activity on arrival day?', 'Yes, if it is short and nearby: a treasure hunt in the old town or a sunset cruise.'],
+    faqFlights: ['Do you book the group’s flights?', 'No. We tell you the best routes from your city, and we take over as soon as you land.'],
+    finalScript: 'Shall we take you?',
+    finalTitle: 'Let’s talk about your Corfu {year}',
+    finalText: 'Twenty minutes are enough to frame your project. Your quote arrives within 48 hours.',
+    btnWhatsapp: 'Message us on WhatsApp', btnEmail: 'Send an e-mail', btnInstagram: 'Follow us on Instagram', btnWebsite: 'Visit the website'
+  },
+
+  gr: {
+    htmlLang: 'el',
+    heroKicker: 'Kerkyra Work & Play · DMC στην Κέρκυρα',
+    heroScript: 'Προορισμός', heroMain: 'Κέρκυρα',
+    heroSub: 'Σεμινάρια, incentives και team building σε ένα ελληνικό νησί, {flight} από το Παρίσι.',
+    heroScroll: 'Κύλιση',
+    manifesto: 'Ένα ελληνικό νησί σε *λιγότερο* *από* *τρεις* *ώρες* *πτήσης*, όπου δουλεύεις το πρωί, σαλπάρεις το απόγευμα και δειπνείς *κάτω* *από* *τις* *ελιές*.',
+    manifestoSign: 'Ιδρυτές, μόνιμοι κάτοικοι Κέρκυρας',
+    figEyebrow: 'Το νησί σε αριθμούς',
+    figTitle: 'Μακριά από όλα, <em>κοντά</em> σας',
+    flightLabel: 'απευθείας πτήση από το Παρίσι',
+    flightNote: 'Από Orly ή Roissy, σχεδόν καθημερινά στη σεζόν. Μία ώρα διαφορά, και το αεροδρόμιο απέχει 3 χλμ. από την παλιά πόλη.',
+    cityParis: 'ΠΑΡΙΣΙ', cityCorfu: 'ΚΕΡΚΥΡΑ',
+    wxEyebrow: 'Καιρός',
+    wxTitle: 'Ήλιος, από Απρίλιο έως Οκτώβριο',
+    wxBarsLabel: 'Μέσες μέγιστες θερμοκρασίες στην Κέρκυρα, Απρίλιος έως Οκτώβριος',
+    wxBest: 'Οι αγαπημένοι μας μήνες για ομάδες',
+    wxOther: 'Επίσης εφικτοί',
+    wxSeaLabel: 'η θάλασσα αρχές Οκτωβρίου: κολυμπάς ακόμη',
+    wxMidLabel: 'στη μέση σεζόν, όταν το νησί είναι ήσυχο',
+    wxFine: 'Μέσες μέγιστες σε °C, ενδεικτικά στοιχεία.',
+    months: { 4: 'Απρ', 5: 'Μάι', 6: 'Ιούν', 7: 'Ιούλ', 8: 'Αύγ', 9: 'Σεπ', 10: 'Οκτ' },
+    citiesLabel: 'γαλλόφωνες πόλεις με απευθείας πτήση',
+    citiesNote: 'Γαλλία, Βέλγιο, Λουξεμβούργο, Ελβετία: ο καθένας πετά από την πόλη του και όλοι συναντιούνται στην Κέρκυρα.',
+    citiesLink: 'Όλες οι πτήσεις, ανά πόλη',
+    countryNames: { FR: 'Γαλλία', BE: 'Βέλγιο', LU: 'Λουξεμβούργο', CH: 'Ελβετία' },
+    cityNames: { PAR: 'Παρίσι', LYS: 'Λυών', MRS: 'Μασσαλία', TLS: 'Τουλούζη', BOD: 'Μπορντό', NTE: 'Ναντ', LIL: 'Λιλ', SXB: 'Στρασβούργο', BSL: 'Βασιλεία', BRU: 'Βρυξέλλες', LUX: 'Λουξεμβούργο', GVA: 'Γενεύη', ZRH: 'Ζυρίχη' },
+    factTz: 'διαφορά ώρας, όλο τον χρόνο',
+    factCoast: 'ακτογραμμής, από κολπίσκους έως μεγάλες παραλίες',
+    fact5g: 'σε όλο το νησί, για δουλειά παντού',
+    factUnesco: 'η παλιά πόλη εντάσσεται στην UNESCO',
+    band1Kicker: 'Παλιά πόλη της Κέρκυρας',
+    band1Title: 'Βενετσιάνικα καντούνια, μνημείο UNESCO',
+    mustEyebrow: 'Δραστηριότητες',
+    mustTitle: 'Τα <em>απαραίτητα</em>',
+    mustLead: 'Οι πέντε εμπειρίες που ζητούν ξανά οι ομάδες μας, όλες και σε ιδιωτική μορφή.',
+    extraEyebrow: 'Ένα βήμα παραπέρα',
+    extraTitle: 'Τα <em>έξτρα</em>',
+    extraLead: 'Όσα προσθέτουμε όταν το ταξίδι πρέπει να μείνει αξέχαστο.',
+    alsoTitle: 'Και ακόμη',
+    act: {
+      catamaran: ['Βόλτα με καταμαράν', 'Έξι ώρες στη θάλασσα προς Παξούς ή τη βορειοανατολική ακτή, με βουτιές. Ποτά και σνακ στο σκάφος.'],
+      quad: ['Γουρούνες εκτός δρόμου', 'Μια διαδρομή off-road με γεύμα, επίσκεψη σε ελαιώνα και γευσιγνωσία κρασιού.'],
+      vespa: ['Road trip με Vespa', 'Η Κέρκυρα αλά ιταλικά: παραλιακοί δρόμοι και μετά γεύμα δίπλα στο κύμα.'],
+      oliveraie: ['Δείπνο με μεζέδες στον ελαιώνα', 'Ιδιωτικό τραπέζι ανάμεσα σε αιωνόβιες ελιές, μετά την ξενάγηση στο κτήμα και τη γευσιγνωσία ελαιολάδου.'],
+      chasse: ['Κυνήγι θησαυρού', 'Στα ίχνη του Αγίου Σπυρίδωνα στην παλιά πόλη, με γρίφους. Ιδανικό για την ημέρα άφιξης.'],
+      gala: ['Gala Wild Feast', 'Επίσημο δείπνο σε ιδιωτική παραλία, ξυπόλυτοι στην άμμο, με σεφ που μαγειρεύει στη φωτιά μπροστά σας.'],
+      centans: ['Η Κέρκυρα πριν από 100 χρόνια', 'Μια βραδιά σε χωριό που αναπαριστά τη δεκαετία του ’30: ζωντανή μουσική και μετά DJ έως τις 3 π.μ.'],
+      rando: ['Πεζοπορία απόδρασης', 'Το παραλιακό μονοπάτι έως την Κασσιόπη, με βουτιά και γευστική στάση στη διαδρομή.'],
+      moto: ['Ταξίδι με μοτοσικλέτα', 'Τέσσερις ημέρες στον δρόμο ανάμεσα σε θάλασσα και βουνά, για ομάδες με δίπλωμα και όρεξη.']
+    },
+    mHours: '{v} ώρες', mHoursAbout: 'περίπου {v} ώρες', mPeople: '{v} άτομα', mDays: '{v} ημέρες',
+    alsoAlbania: 'Απόδραση στην Αλβανία', alsoSunset: 'Ιδιωτική κρουαζιέρα στο ηλιοβασίλεμα', alsoPetanque: 'Τουρνουά πετάνκ στο παλιό λιμάνι',
+    alsoCooking: 'Μάθημα ελληνικής μαγειρικής', alsoTasting: 'Γευσιγνωσίες κρασιού και ελαιολάδου', alsoFarm: 'Γεύμα «Farm to Table»',
+    slideOf: 'από',
+    prev: 'Προηγούμενο', next: 'Επόμενο',
+    band2Kicker: 'Βόρεια Κέρκυρα',
+    band2Title: 'Τρεις ημέρες αρκούν για να αποσυνδεθείς',
+    grpEyebrow: 'Τύποι ομάδων',
+    grpTitle: 'Τέσσερις μορφές, μία <em>ομάδα</em>',
+    grpGauge: 'συμμετέχοντες. Πέρα από αυτό, δουλεύουμε με εναλλασσόμενες υποομάδες.',
+    grp: {
+      direction: ['Σεμινάριο διοίκησης', 'Μικρές επιτροπές', 'Ξενοδοχείο υψηλού επιπέδου, μια ημέρα εργασίας σε αίθουσα και ιδιωτικό δείπνο σε αιωνόβιο ελαιώνα.', 'Για αποφάσεις με ηρεμία'],
+      incentive: ['Ταξίδι incentive', '10 έως 50 άτομα · 4 ημέρες / 3 νύχτες', 'Καταμαράν προς Παξούς, γουρούνες, επίσημο δείπνο σε ιδιωτική παραλία. Πέμπτη έως Κυριακή, για να επιβραβεύσετε μια ομάδα.', 'Από {price} ανά άτομο, χωρίς πτήσεις'],
+      team: ['Team building', '8 έως 50 άτομα · από 1 ώρα 30΄ έως 2 ημέρες', 'Κυνήγι θησαυρού, τουρνουά πετάνκ, βραδιά σε χωριό της δεκαετίας του ’30. Δεν χρειάζεται να είστε αθλητικοί.', 'Για να δεθεί η ομάδα'],
+      hybride: ['Υβριδική διαμονή', '3 ημέρες · η πιο δημοφιλής', 'Εργασία το πρωί, δραστηριότητα το απόγευμα, βραδιά όλοι μαζί. Η μορφή που μας ζητούν περισσότερο οι εταιρείες.', 'Δουλειά το πρωί, νησί το απόγευμα']
+    },
+    caseEyebrow: 'Πραγματικό παράδειγμα · Οκτώβριος 2026',
+    caseTitle: 'Μια ομάδα από τη Ναντ, λιγότερο από τρεις ώρες πτήσης',
+    casePeople: 'συμμετέχοντες', caseDays: 'ημέρες / νύχτες', caseExp: 'εμπειρίες, οι 3 ιδιωτικές', caseBus: 'μίνι λεωφορείο για όλες τις μεταφορές',
+    dmcEyebrow: 'Το γραφείο μας',
+    dmcTitle: 'Δύο Γάλλοι που ζουν <em>εδώ</em>',
+    dmcLead: 'Η Kerkyra Work & Play είναι γραφείο υποδοχής (DMC) με έδρα την Κέρκυρα. Έχετε έναν μόνο συνομιλητή, από το πρώτο τηλεφώνημα έως την τελευταία μεταφορά.',
+    founderConstance: 'MICE και γραφεία εκδηλώσεων', founderMichael: 'Σεμινάρια Work & Play',
+    statGroups: 'ομάδες που φιλοξενήσαμε στην Κέρκυρα', statQuote: 'για να λάβετε την προσφορά σας', statCall: 'συζήτηση για να ορίσουμε το έργο', statContact: 'συνομιλητής',
+    inclTitle: 'Τι αναλαμβάνουμε',
+    inclProgram: 'Πρόγραμμα στα μέτρα σας', inclHotel: 'Διαμονή: συνεργαζόμενες βίλες και ξενοδοχεία', inclTransfer: 'Ιδιωτικές μεταφορές, από μίνι λεωφορείο έως πούλμαν 50 θέσεων',
+    inclFood: 'Εστίαση, με μενού και διατροφικές ανάγκες', inclGuides: 'Δραστηριότητες και ξεναγούς', inclOnsite: 'Συνοδεία επί τόπου',
+    inclFile: 'Τεχνικό φάκελο πριν από την αναχώρηση: επαφές, rooming list, πρόγραμμα ώρα προς ώρα',
+    inclFlights: 'Οι πτήσεις μένουν στα χέρια σας: σας κατευθύνουμε και αναλαμβάνουμε από την προσγείωση.',
+    stepsTitle: 'Πώς γίνεται',
+    step1: ['Μια συζήτηση 20 λεπτών', 'Οι ημερομηνίες, η ομάδα και ο στόχος σας.'],
+    step2: ['Η προσφορά σας μέσα σε 48 ώρες', 'Πρόγραμμα, διαμονή και κόστος ανά συμμετέχοντα.'],
+    step3: ['Έγκριση και ηλεκτρονική υπογραφή', 'Προκαταβολή στην επιβεβαίωση, εξόφληση πριν από την άφιξη.'],
+    step4: ['Σας υποδεχόμαστε στο αεροδρόμιο', 'Και μένουμε μαζί σας έως την αναχώρηση.'],
+    faqEyebrow: 'Πριν από το ταξίδι',
+    faqTitle: 'Οι ερωτήσεις που μας <em>κάνουν</em>',
+    faqWhen: ['Πότε να έρθουμε;', 'Την άνοιξη (Μάιο και Ιούνιο) ή το φθινόπωρο (Σεπτέμβριο και Οκτώβριο). Το καλοκαίρι γίνεται επίσης, με περισσότερη ζέστη και κόσμο.'],
+    faqNights: ['Δύο ή τρεις νύχτες;', 'Τρεις. Αξιοποιούν καλύτερα την πτήση και αφήνουν χρόνο για δουλειά και για ανάσα.'],
+    faqAdvance: ['Πόσο νωρίτερα να το οργανώσουμε;', 'Υπολογίστε περισσότερο από τους δύο με τρεις μήνες που χρειάζεται ένα σεμινάριο στη χώρα σας, και κλείστε πτήσεις μόλις οριστούν οι ημερομηνίες.'],
+    faqIncluded: ['Τι περιλαμβάνει το πακέτο;', 'Διαμονή με πρωινό, μεταφορές, μέρος των γευμάτων, δραστηριότητες και συνοδεία. Πτήσεις, έξτρα και ασφάλιση είναι ξεχωριστά.'],
+    faqSporty: ['Πρέπει να είμαστε αθλητικοί;', 'Όχι, για τις περισσότερες δραστηριότητες. Προβλέπουμε διαφορετικές μορφές και πιο ήπιους ρόλους για όσους το προτιμούν.'],
+    faqArrival: ['Γίνεται δραστηριότητα την ημέρα άφιξης;', 'Ναι, αν είναι σύντομη και κοντινή: κυνήγι θησαυρού στην παλιά πόλη ή κρουαζιέρα στο ηλιοβασίλεμα.'],
+    faqFlights: ['Κλείνετε τις πτήσεις της ομάδας;', 'Όχι. Σας προτείνουμε τις καλύτερες συνδέσεις από την πόλη σας και αναλαμβάνουμε από την προσγείωση.'],
+    finalScript: 'Πάμε μαζί;',
+    finalTitle: 'Ας μιλήσουμε για τη δική σας Κέρκυρα {year}',
+    finalText: 'Είκοσι λεπτά αρκούν για να ορίσουμε το έργο σας. Η προσφορά σας έρχεται μέσα σε 48 ώρες.',
+    btnWhatsapp: 'Γράψτε μας στο WhatsApp', btnEmail: 'Στείλτε e-mail', btnInstagram: 'Ακολουθήστε μας στο Instagram', btnWebsite: 'Δείτε τον ιστότοπο'
+  }
+};
+
+/* ==========================================================================
+   OUTILS
+   ========================================================================== */
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+const clamp = (v, min = 0, max = 1) => Math.min(max, Math.max(min, v));
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const SVG_NS = 'http://www.w3.org/2000/svg';
+let currentLang = CONFIG.defaultLang;
+
+function el(tag, attrs = {}, html = '') {
+  const node = document.createElement(tag);
+  Object.entries(attrs).forEach(([k, v]) => node.setAttribute(k, v));
+  if (html) node.innerHTML = html;
+  return node;
+}
+
+/** Durée de vol formatée (« 2 h 45 ») à partir de minutes. */
+function formatFlight(minutes) {
+  const h = Math.floor(minutes / 60);
+  const m = String(Math.round(minutes % 60)).padStart(2, '0');
+  return `${h} h ${m}`;
+}
+
+/** Valeurs injectées dans les textes ({flight}, {cities}…). */
+function getTextVars() {
+  return {
+    flight: formatFlight(CONFIG.flightMinutes),
+    cities: CONFIG.cities.length,
+    min: CONFIG.groupMin,
+    max: CONFIG.groupMax,
+    price: CONFIG.incentivePriceFrom,
+    year: CONFIG.year
+  };
+}
+
+/** Lit une clé (chemin pointé accepté : « act.quad.0 ») dans la langue courante. */
+function translate(key, extra = {}) {
+  const read = (lang) => key.split('.').reduce((o, k) => (o == null ? o : o[k]), TRANSLATIONS[lang]);
+  let value = read(currentLang);
+  if (value == null) value = read(CONFIG.defaultLang);
+  if (typeof value !== 'string') return value == null ? '' : value;
+  const vars = { ...getTextVars(), ...extra };
+  return value.replace(/\{(\w+)\}/g, (m, name) => (name in vars ? vars[name] : m));
+}
+
+/* ==========================================================================
+   RENDU — construit une fois le DOM à partir de CONFIG (textes via data-i18n)
+   ========================================================================== */
+function renderSunRays() {
+  const g = $('#sunRays');
+  for (let i = 0; i < 16; i++) {
+    const a = (i / 16) * Math.PI * 2;
+    const r1 = 60, r2 = i % 2 ? 78 : 92;
+    const line = document.createElementNS(SVG_NS, 'line');
+    line.setAttribute('x1', 100 + Math.cos(a) * r1); line.setAttribute('y1', 100 + Math.sin(a) * r1);
+    line.setAttribute('x2', 100 + Math.cos(a) * r2); line.setAttribute('y2', 100 + Math.sin(a) * r2);
+    g.appendChild(line);
+  }
+}
+
+function renderWeather() {
+  const { min, max } = CONFIG.weatherScale;
+  const bars = $('#weatherBars');
+  CONFIG.weather.forEach((w, i) => {
+    const h = Math.round(((w.temp - min) / (max - min)) * 100);
+    bars.appendChild(el('div', { class: 'bar' + (w.best ? ' best' : ''), style: `--h:${h};--i:${i}` },
+      `<b>${w.temp}°</b><i></i><span data-i18n="months.${w.month}"></span>`));
+  });
+  $('#wxSea').textContent = `${CONFIG.seaTempOctober} °C`;
+  $('#wxMid').textContent = `${CONFIG.midSeasonRange[0]} – ${CONFIG.midSeasonRange[1]} °C`;
+}
+
+function renderCities() {
+  const chips = $('#cityChips');
+  CONFIG.countries.forEach((country, ci) => {
+    const block = el('div', { class: 'country rv', style: `--d:${ci}` }, `<h4 data-i18n="countryNames.${country}"></h4>`);
+    const list = el('div', { class: 'chips' });
+    CONFIG.cities.filter((c) => c.country === country)
+      .forEach((c) => list.appendChild(el('span', { class: 'chip', 'data-i18n': `cityNames.${c.id}` })));
+    block.appendChild(list);
+    chips.appendChild(block);
+  });
+  // Liaisons sur la carte : un arc par ville, vers Corfou
+  const routes = $('#mapRoutes');
+  const { x: cx, y: cy } = CONFIG.corfuOnMap;
+  CONFIG.cities.forEach((c, i) => {
+    const mx = (c.x + cx) / 2, my = (c.y + cy) / 2;
+    const lift = Math.hypot(cx - c.x, cy - c.y) * 0.22;
+    const path = document.createElementNS(SVG_NS, 'path');
+    path.setAttribute('class', 'route');
+    path.setAttribute('pathLength', '1');
+    path.setAttribute('d', `M${c.x},${c.y} Q${mx + lift * 0.5},${my - lift} ${cx},${cy}`);
+    path.style.setProperty('--i', i);
+    routes.appendChild(path);
+    const dot = document.createElementNS(SVG_NS, 'circle');
+    dot.setAttribute('class', 'city');
+    dot.setAttribute('cx', c.x); dot.setAttribute('cy', c.y); dot.setAttribute('r', 6.5);
+    dot.style.setProperty('--i', i);
+    routes.appendChild(dot);
+  });
+}
+
+function renderFacts() {
+  const box = $('#facts');
+  CONFIG.facts.forEach((f, i) => box.appendChild(
+    el('div', { class: 'fact rv', style: `--d:${i % 2}` }, `<b>${f.value}</b><span data-i18n="${f.key}"></span>`)));
+}
+
+function renderCarousel(root) {
+  const name = root.dataset.carousel;
+  const items = CONFIG.activities[name];
+  const track = el('div', { class: 'car-track', tabindex: '0' });
+  items.forEach((a, i) => {
+    const metas = a.meta.map(([tpl, v]) => `<span class="meta" data-i18n="${tpl}" data-v="${v}"></span>`).join('');
+    track.appendChild(el('article', { class: 'slide' },
+      `<div class="slide-img"><img src="${CONFIG.imgPath}${a.img}" alt="" loading="lazy" decoding="async">
+         <span class="slide-num">${String(i + 1).padStart(2, '0')}</span>
+         <h3 data-i18n="act.${a.id}.0"></h3></div>
+       <div class="slide-body"><p data-i18n="act.${a.id}.1"></p><div class="metas">${metas}</div></div>`));
+  });
+  const ui = el('div', { class: 'car-ui' },
+    `<div class="car-count"><span class="cur">01</span> <small>/ ${String(items.length).padStart(2, '0')}</small></div>
+     <div class="car-dots">${items.map((_, i) => `<button type="button" aria-label="${i + 1}"></button>`).join('')}</div>
+     <div class="car-arrows">
+       <button type="button" class="prev" data-i18n-aria="prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+       <button type="button" class="next" data-i18n-aria="next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+     </div>`);
+  root.append(track, ui);
+}
+
+function renderAlso() {
+  const box = $('#alsoChips');
+  CONFIG.activities.also.forEach((key, i) => box.appendChild(el('span', { class: 'chip rv', style: `--d:${i}`, 'data-i18n': key })));
+}
+
+function renderGroups() {
+  $('#gaugeRange').textContent = `${CONFIG.groupMin} → ${CONFIG.groupMax}`;
+  const dots = $('#gaugeDots');
+  for (let i = 0; i < CONFIG.groupMax; i++) {
+    dots.appendChild(el('i', { class: i < CONFIG.groupMin ? 'core' : '', style: `--i:${i}` }));
+  }
+  const stack = $('#groupStack');
+  CONFIG.groups.forEach((id, i) => stack.appendChild(el('article', { class: 'gcard', style: `--i:${i}` },
+    `<span class="gnum">${String(i + 1).padStart(2, '0')}</span>
+     <h3 data-i18n="grp.${id}.0"></h3>
+     <span class="gmeta" data-i18n="grp.${id}.1"></span>
+     <p data-i18n="grp.${id}.2"></p>
+     <span class="gfoot" data-i18n="grp.${id}.3"></span>`)));
+  const list = $('#caseList');
+  CONFIG.caseStudy.forEach((c, i) => list.appendChild(
+    el('div', { class: 'rv', style: `--d:${i}` }, `<b>${c.value}</b><span data-i18n="${c.key}"></span>`)));
+}
+
+function renderDmc() {
+  const founders = $('#founders');
+  CONFIG.founders.forEach((f, i) => founders.appendChild(el('figure', { class: 'founder rv', style: `--d:${i}` },
+    `<img src="${CONFIG.imgPath}${f.img}" alt="${f.name}" loading="lazy" width="320" height="320">
+     <figcaption><b>${f.name}</b><span data-i18n="${f.key}"></span></figcaption>`)));
+  const stats = $('#dmcStats');
+  CONFIG.stats.forEach((s, i) => stats.appendChild(el('div', { class: 'stat rv', style: `--d:${i % 2}` },
+    `<b>${s.value}${s.unit ? `<small>${s.unit}</small>` : ''}</b><span data-i18n="${s.key}"></span>`)));
+  const incl = $('#inclList');
+  CONFIG.included.forEach((key, i) => incl.appendChild(el('li', { class: 'rv', style: `--d:${Math.min(i, 4)}` },
+    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span data-i18n="${key}"></span>`)));
+  const timeline = $('#timeline');
+  CONFIG.steps.forEach((key, i) => timeline.appendChild(el('li', { class: 'step rv', 'data-n': i + 1 },
+    `<b data-i18n="${key}.0"></b><span data-i18n="${key}.1"></span>`)));
+}
+
+function renderFaq() {
+  const list = $('#faqList');
+  CONFIG.faq.forEach((key) => list.appendChild(el('details', { class: 'rv' },
+    `<summary data-i18n="${key}.0"></summary><p data-i18n="${key}.1"></p>`)));
+}
+
+function renderContact() {
+  const c = CONFIG.contact;
+  const icons = {
+    wa: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4.6A8.5 8.5 0 1 1 8.2 19z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .9c-1-.5-2.300-1.800-2.800-2.800l.9-1-1-2z"/></svg>',
+    mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6.5l8.500 6.500 8.500-6.500"/></svg>',
+    ig: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg>',
+    web: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.500"/><path d="M3.5 12h17M12 3.5c2.500 2.500 2.500 14.500 0 17M12 3.500c-2.500 2.500-2.500 14.500 0 17"/></svg>'
+  };
+  const buttons = [
+    { cls: 'btn primary', href: `https://wa.me/${c.whatsapp}`, icon: icons.wa, key: 'btnWhatsapp', sub: c.whatsappLabel },
+    { cls: 'btn', href: `mailto:${c.email}`, icon: icons.mail, key: 'btnEmail', sub: c.email },
+    { cls: 'btn', href: `https://www.instagram.com/${c.instagram}`, icon: icons.ig, key: 'btnInstagram', sub: '@' + c.instagram },
+    { cls: 'btn', href: c.website, icon: icons.web, key: 'btnWebsite', sub: c.websiteLabel }
+  ];
+  const box = $('#contactBtns');
+  buttons.forEach((b, i) => box.appendChild(el('a', { class: b.cls + ' rv', href: b.href, style: `--d:${i}`, rel: 'noopener' },
+    `${b.icon}<span><span data-i18n="${b.key}"></span><small>${b.sub}</small></span>`)));
+  $('#footLegal').textContent = c.legal;
+}
+
+/* ==========================================================================
+   LANGUE — applique TRANSLATIONS à tout le DOM
+   ========================================================================== */
+/** Titre du hero : écriture manuscrite + lettres qui montent + année en compteur. */
+function renderHeroTitle(animate) {
+  const title = $('#heroTitle');
+  const script = translate('heroScript'), main = translate('heroMain');
+  title.setAttribute('aria-label', `${script} ${main} ${CONFIG.year}`);
+  const letters = [...main].map((ch, i) => `<span class="ch" style="--i:${i}">${ch}</span>`).join('');
+  const digits = [...CONFIG.year].map((d, i) => {
+    const n = Number(d), steps = 4;
+    let column = '';
+    for (let k = steps; k >= 0; k--) column += `<b>${(n - k + 10) % 10}</b>`;
+    return `<span class="dg"><span style="--n:${steps};--i:${i}">${column}</span></span>`;
+  }).join('');
+  title.innerHTML = `<span class="ht-script" aria-hidden="true">${script}</span>
+    <span class="ht-main" aria-hidden="true">${letters}</span>
+    <span class="ht-year" aria-hidden="true"><span class="ht-digits">${digits}</span></span>`;
+  if (!animate) $$('*', title).forEach((n) => { n.style.animationDelay = '0s'; n.style.animationDuration = '.01s'; });
+}
+
+/** Manifeste : un <span> par mot ; les mots entourés de *…* sont mis en valeur. */
+function renderManifesto() {
+  const box = $('#manifestoWords');
+  box.innerHTML = translate('manifesto').split(' ').map((word) => {
+    const hl = /^\*.*\*[.,]?$/.test(word);
+    return `<span class="w${hl ? ' hl' : ''}">${word.replace(/\*/g, '')}</span>`;
+  }).join(' ');
+}
+
+function applyLanguage(lang, isFirstRun = false) {
+  currentLang = TRANSLATIONS[lang] ? lang : CONFIG.defaultLang;
+  document.documentElement.lang = TRANSLATIONS[currentLang].htmlLang;
+  $$('[data-i18n]').forEach((n) => { n.textContent = translate(n.dataset.i18n, n.dataset.v ? { v: n.dataset.v } : {}); });
+  $$('[data-i18n-html]').forEach((n) => { n.innerHTML = translate(n.dataset.i18nHtml); });
+  $$('[data-i18n-aria]').forEach((n) => n.setAttribute('aria-label', translate(n.dataset.i18nAria)));
+  $('#weatherBars').setAttribute('aria-label', translate('wxBarsLabel'));
+  $$('#langSwitch button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === currentLang)));
+  document.title = `${translate('heroScript')} ${translate('heroMain')} ${CONFIG.year} — Kerkyra Work & Play`;
+  renderHeroTitle(isFirstRun);
+  renderManifesto();
+  if (!isFirstRun) { try { localStorage.setItem('kerkyraLang', currentLang); } catch (e) { /* stockage indisponible */ } }
+  requestScrollUpdate();
+}
+
+function getInitialLanguage() {
+  const fromUrl = new URLSearchParams(location.search).get('lang');
+  if (fromUrl && TRANSLATIONS[fromUrl]) return fromUrl;
+  try { const saved = localStorage.getItem('kerkyraLang'); if (saved && TRANSLATIONS[saved]) return saved; } catch (e) { /* ignore */ }
+  return CONFIG.defaultLang;
+}
+
+/* ==========================================================================
+   EFFETS AU SCROLL
+   ========================================================================== */
+/** Apparitions : ajoute .in quand l'élément entre dans l'écran. */
+function initReveals() {
+  const targets = $$('.rv, .rv-img, .bars, .map, .dots');
+  if (REDUCED || !('IntersectionObserver' in window)) { targets.forEach((n) => n.classList.add('in')); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+  targets.forEach((n) => io.observe(n));
+}
+
+/** Compteurs (ex. 13 villes) : comptent de 0 à la valeur à l'entrée dans l'écran. */
+function initCounters() {
+  const nodes = $$('[data-count]');
+  const run = (node) => {
+    const target = Number(getTextVars()[node.dataset.count]);
+    if (REDUCED) { node.textContent = target; return; }
+    const start = performance.now(), duration = 1400;
+    const tick = (now) => {
+      const p = clamp((now - start) / duration);
+      node.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  if (!('IntersectionObserver' in window)) { nodes.forEach(run); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } });
+  }, { threshold: 0.6 });
+  nodes.forEach((n) => io.observe(n));
+}
+
+/** Progression d'un élément dans l'écran : 0 quand son haut atteint `from` (part de la hauteur d'écran), 1 à `to`. */
+function progressOf(node, from = 1, to = 0) {
+  const vh = window.innerHeight;
+  const top = node.getBoundingClientRect().top;
+  return clamp((from * vh - top) / ((from - to) * vh));
+}
+
+let scrollTicking = false;
+function requestScrollUpdate() {
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(() => { scrollTicking = false; updateScrollEffects(); });
+}
+
+const flightArc = $('#flightArc'), flightPlane = $('#flightPlane'), flightTime = $('#flightTime');
+const flightLength = flightArc.getTotalLength();
+flightArc.style.strokeDasharray = flightLength;
+
+/** Met à jour l'arc de vol, l'avion et le chrono pour une progression p (0 → 1). */
+function updateFlight(p) {
+  const eased = 1 - Math.pow(1 - p, 2);
+  flightArc.style.strokeDashoffset = flightLength * (1 - eased);
+  const at = flightArc.getPointAtLength(flightLength * eased);
+  const ahead = flightArc.getPointAtLength(Math.min(flightLength, flightLength * eased + 1));
+  const angle = eased >= 1 ? 38 : Math.atan2(ahead.y - at.y, ahead.x - at.x) * 180 / Math.PI;
+  flightPlane.setAttribute('transform', `translate(${at.x},${at.y}) rotate(${angle})`);
+  const minutes = Math.round(CONFIG.flightMinutes * eased);
+  const [h, m] = formatFlight(minutes).split(' h ');
+  flightTime.innerHTML = `${h}<small>h</small>${m}`;
+}
+
+function updateScrollEffects() {
+  const doc = document.documentElement;
+  const vh = window.innerHeight;
+  const max = doc.scrollHeight - vh;
+  doc.style.setProperty('--sp', max > 0 ? clamp(window.scrollY / max) : 0);
+  if (REDUCED) { updateFlight(1); $$('#manifestoWords .w').forEach((w) => w.classList.add('on')); $('#timeline').style.setProperty('--tp', 1); return; }
+
+  // Hero : le titre s'efface, la photo recule
+  $('#hero').style.setProperty('--hp', clamp(window.scrollY / vh));
+
+  // Manifeste : les mots s'allument un à un
+  const words = $$('#manifestoWords .w');
+  const wp = progressOf($('#manifestoWords'), 0.86, 0.3);
+  const lit = Math.round(wp * words.length);
+  words.forEach((w, i) => w.classList.toggle('on', i < lit));
+
+  // Vol : l'arc se trace
+  updateFlight(progressOf($('#flight'), 0.8, 0.22));
+
+  // Météo : le soleil se lève
+  $('#weather').style.setProperty('--wp', progressOf($('#weather'), 1, 0.3));
+
+  // Bandeaux photo : parallaxe
+  $$('[data-parallax]').forEach((node) => {
+    const r = node.getBoundingClientRect();
+    if (r.bottom < -50 || r.top > vh + 50) return;
+    node.style.setProperty('--pp', (clamp((vh - r.top) / (vh + r.height)) - 0.5).toFixed(4));
+  });
+
+  // Déroulé : la ligne se remplit
+  $('#timeline').style.setProperty('--tp', progressOf($('#timeline'), 0.8, 0.3));
+}
+
+/* ==========================================================================
+   CARROUSELS
+   ========================================================================== */
+function initActivityCarousel(root) {
+  const track = $('.car-track', root);
+  const slides = $$('.slide', track);
+  const dots = $$('.car-dots button', root);
+  const current = $('.cur', root);
+  let ticking = false;
+
+  const update = () => {
+    ticking = false;
+    const center = track.scrollLeft + track.clientWidth / 2;
+    let active = 0, best = Infinity;
+    slides.forEach((s, i) => {
+      const offset = (s.offsetLeft + s.offsetWidth / 2 - center) / s.offsetWidth;
+      if (Math.abs(offset) < best) { best = Math.abs(offset); active = i; }
+      if (!REDUCED) {
+        s.style.setProperty('--dist', clamp(Math.abs(offset)).toFixed(3));
+        s.style.setProperty('--px', clamp(offset, -1, 1).toFixed(3));
+      }
+    });
+    dots.forEach((d, i) => d.setAttribute('aria-current', String(i === active)));
+    current.textContent = String(active + 1).padStart(2, '0');
+    root.dataset.active = active;
+  };
+  const goTo = (i) => {
+    const s = slides[clamp(i, 0, slides.length - 1)];
+    track.scrollTo({ left: s.offsetLeft - (track.clientWidth - s.offsetWidth) / 2, behavior: REDUCED ? 'auto' : 'smooth' });
+  };
+  track.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+  $('.prev', root).addEventListener('click', () => goTo(Number(root.dataset.active) - 1));
+  $('.next', root).addEventListener('click', () => goTo(Number(root.dataset.active) + 1));
+  track.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); goTo(Number(root.dataset.active) + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(Number(root.dataset.active) - 1); }
+  });
+  window.addEventListener('resize', update);
+  update();
+}
+
+/* ==========================================================================
+   DÉMARRAGE
+   ========================================================================== */
+function init() {
+  document.documentElement.classList.add('js');
+  renderSunRays();
+  renderWeather();
+  renderCities();
+  renderFacts();
+  $$('[data-carousel]').forEach(renderCarousel);
+  renderAlso();
+  renderGroups();
+  renderDmc();
+  renderFaq();
+  renderContact();
+  applyLanguage(getInitialLanguage(), true);
+  $$('[data-carousel]').forEach(initActivityCarousel);
+  initReveals();
+  initCounters();
+  $$('#langSwitch button').forEach((b) => b.addEventListener('click', () => applyLanguage(b.dataset.lang)));
+  window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+  window.addEventListener('resize', requestScrollUpdate);
+  updateScrollEffects();
+}
+init();
+</script>
+</body>
+</html>

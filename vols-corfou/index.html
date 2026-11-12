@@ -74,17 +74,50 @@
   .topcta{background:var(--gold);color:#3a2c06;font-weight:800;border:none;border-radius:999px;padding:10px 18px;font-size:14px;cursor:pointer;text-decoration:none;white-space:nowrap}
   .topcta:hover{background:var(--gold-d);color:#fff}
 
-  .hero{position:relative;color:#fff;overflow:hidden;min-height:250px;display:flex;
-        background-color:var(--teal-x);
-        background-image:linear-gradient(115deg,rgba(3,63,71,.74),rgba(3,63,71,.30)),url("img/hero-bateau.jpg");
-        background-size:cover;background-position:center;background-repeat:no-repeat}
-  @media(max-width:720px){.hero{min-height:210px}}
-  .hero .overlay{position:relative;display:flex;flex-direction:column;justify-content:center;padding:32px 7%;width:100%}
+  @media(max-width:600px){.topcta{display:none}.topright{gap:8px}.logo img{height:44px}}
+
+  /* HERO — scène animée « coucher de soleil sur Corfou » (SVG + CSS, sans dépendance) */
+  .hero{position:relative;color:#fff;overflow:hidden;min-height:clamp(270px,23vw,440px);display:flex;background:var(--teal-x)}
+  .hero-scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+  @media(max-width:720px){.hero{flex-direction:column;min-height:0}.hero-scene{position:relative;inset:auto;height:180px;flex:0 0 auto}.hs-shade{display:none}}
+  .hero .overlay{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:32px 7%;width:100%}
+  .hs-sun{animation:hsSun 16s ease-in-out infinite alternate}
+  .hs-glow{transform-box:fill-box;transform-origin:center;animation:hsGlow 7s ease-in-out infinite alternate}
+  .hs-star{animation:hsTwinkle 3.6s ease-in-out infinite alternate}
+  .hs-cloud-a{animation:hsDrift 48s ease-in-out infinite alternate}
+  .hs-cloud-b{animation:hsDrift 64s ease-in-out infinite alternate-reverse}
+  .hs-shim rect{transform-box:fill-box;transform-origin:center;animation:hsShim 3.4s ease-in-out infinite alternate}
+  .hs-shim rect:nth-child(2n){animation-delay:-1.2s}
+  .hs-shim rect:nth-child(3n){animation-delay:-2.3s}
+  .hs-wave{animation:hsWave 11s linear infinite}
+  .hs-wave.w2{animation-duration:16s}
+  .hs-wave.w3{animation-duration:22s}
+  .hs-boat{animation:hsSail 34s ease-in-out infinite alternate}
+  .hs-bob{transform-box:fill-box;transform-origin:50% 100%;animation:hsBob 4.5s ease-in-out infinite alternate}
+  .hs-gulls{animation:hsGulls 9s ease-in-out infinite alternate}
+  .hs-plane{transform:translate(940px,138px) rotate(15deg) scale(.68);animation:hsPlane 19s linear infinite}
+  .hs-blink{animation:hsBlink 1.4s steps(1,end) infinite}
+  @keyframes hsSun{to{transform:translateY(15px)}}
+  @keyframes hsGlow{from{opacity:.78;transform:scale(.96)}to{opacity:1;transform:scale(1.06)}}
+  @keyframes hsTwinkle{from{opacity:.15}to{opacity:.9}}
+  @keyframes hsDrift{to{transform:translateX(70px)}}
+  @keyframes hsShim{from{opacity:.22;transform:scaleX(.72)}to{opacity:.95;transform:scaleX(1.12)}}
+  @keyframes hsWave{to{stroke-dashoffset:-240}}
+  @keyframes hsSail{to{transform:translateX(64px)}}
+  @keyframes hsBob{from{transform:rotate(-1.6deg)}to{transform:rotate(1.6deg)}}
+  @keyframes hsGulls{to{transform:translate(22px,-9px)}}
+  @keyframes hsBlink{0%{opacity:1}55%{opacity:.15}}
+  @keyframes hsPlane{
+    0%{transform:translate(610px,50px) rotate(15deg) scale(1);opacity:0}
+    5%{opacity:1}
+    80%{opacity:1}
+    91%,100%{transform:translate(1270px,227px) rotate(15deg) scale(.36);opacity:0}}
+  @media(prefers-reduced-motion:reduce){.hero-scene *{animation:none!important}}
   .hero .brandline{font-size:12px;letter-spacing:.24em;font-weight:700;color:#ffe6b0}
   .hero h1{margin:8px 0 8px;font-size:38px;line-height:1.1;max-width:640px;text-shadow:0 2px 16px rgba(0,35,42,.5)}
   .hero p{margin:0;max-width:520px;font-size:17px;color:#eef7f8;text-shadow:0 1px 10px rgba(0,35,42,.55)}
-  .hero .kicker{display:inline-block;margin-top:16px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:6px 13px;border-radius:999px;font-size:13px}
-  @media(max-width:720px){.hero h1{font-size:25px}.hero p{font-size:14px}.hero .overlay{padding:0 20px}}
+  .hero .kicker{display:inline-block;align-self:flex-start;margin-top:16px;background:rgba(3,63,71,.42);border:1px solid rgba(255,255,255,.4);padding:6px 13px;border-radius:999px;font-size:13px}
+  @media(max-width:720px){.hero h1{font-size:25px}.hero p{font-size:14px}.hero .overlay{padding:4px 20px 24px}}
 
   main{padding:30px 0 10px}
   h2.sec{color:var(--teal-d);font-size:24px;margin:6px 0 4px}
@@ -93,6 +126,7 @@
 
   .maprow{display:grid;grid-template-columns:1.12fr .88fr;gap:22px;align-items:stretch;margin-bottom:26px}
   @media(max-width:880px){.maprow{grid-template-columns:1fr}}
+  .maprow>*{min-width:0}
   .mapcard{padding:14px 14px 8px}
   .mapcard svg{width:100%;height:auto;display:block}
   .mk{cursor:pointer}
@@ -109,7 +143,7 @@
   select:focus{outline:none;border-color:var(--teal)}
   .reset{border:none;background:none;color:var(--muted);font-size:13px;cursor:pointer;text-decoration:underline;padding:12px 4px}
   .count{padding:0 22px 8px;color:var(--muted);font-size:14px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;padding:6px 22px 22px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));gap:16px;padding:6px 22px 22px}
   .flight{border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;background:#fff;position:relative;overflow:hidden}
   .flight:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--gold)}
   .flight .pays{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-d);font-weight:700}
@@ -231,6 +265,96 @@
 
 <!-- HERO -->
 <section class="hero">
+  <svg class="hero-scene" viewBox="0 0 1600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="hsSky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#03323a"/><stop offset=".32" stop-color="#045a63"/><stop offset=".6" stop-color="#028a95"/>
+        <stop offset=".8" stop-color="#7fc6c5"/><stop offset=".92" stop-color="#f4dc98"/><stop offset="1" stop-color="#e9b93a"/>
+      </linearGradient>
+      <linearGradient id="hsSea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d7f8a"/><stop offset=".25" stop-color="#056672"/><stop offset="1" stop-color="#033f47"/></linearGradient>
+      <radialGradient id="hsGlowG"><stop offset="0" stop-color="#fff6d8" stop-opacity=".95"/><stop offset=".3" stop-color="#fbe6a2" stop-opacity=".5"/><stop offset="1" stop-color="#f4dc98" stop-opacity="0"/></radialGradient>
+      <linearGradient id="hsSunG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6d6"/><stop offset="1" stop-color="#f2c445"/></linearGradient>
+      <linearGradient id="hsShade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#033f47" stop-opacity=".74"/><stop offset=".38" stop-color="#033f47" stop-opacity=".4"/><stop offset=".6" stop-color="#033f47" stop-opacity="0"/></linearGradient>
+      <linearGradient id="hsTrail" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".8"/></linearGradient>
+      <clipPath id="hsSkyClip"><rect width="1600" height="262"/></clipPath>
+    </defs>
+    <!-- ciel + étoiles -->
+    <rect width="1600" height="262" fill="url(#hsSky)"/>
+    <g fill="#fff">
+      <circle class="hs-star" cx="640" cy="38" r="1.4"/><circle class="hs-star" cx="760" cy="72" r="1.1" style="animation-delay:-1.2s"/>
+      <circle class="hs-star" cx="905" cy="30" r="1.5" style="animation-delay:-2.1s"/><circle class="hs-star" cx="1085" cy="58" r="1.2" style="animation-delay:-.6s"/>
+      <circle class="hs-star" cx="1240" cy="34" r="1.5" style="animation-delay:-2.8s"/><circle class="hs-star" cx="1395" cy="76" r="1.1" style="animation-delay:-1.7s"/>
+      <circle class="hs-star" cx="1520" cy="44" r="1.4" style="animation-delay:-.3s"/><circle class="hs-star" cx="430" cy="52" r="1.2" style="animation-delay:-2.4s"/>
+      <circle class="hs-star" cx="250" cy="34" r="1.3" style="animation-delay:-1s"/><circle class="hs-star" cx="95" cy="70" r="1.1" style="animation-delay:-3s"/>
+    </g>
+    <!-- soleil couchant -->
+    <g clip-path="url(#hsSkyClip)">
+      <circle class="hs-glow" cx="980" cy="250" r="240" fill="url(#hsGlowG)"/>
+      <circle class="hs-sun" cx="980" cy="242" r="42" fill="url(#hsSunG)"/>
+    </g>
+    <!-- nuages dorés -->
+    <g class="hs-cloud-a">
+      <ellipse cx="1190" cy="196" rx="130" ry="6" fill="#fbe7b0" opacity=".6"/><ellipse cx="1120" cy="184" rx="70" ry="4.5" fill="#fff6dc" opacity=".5"/>
+      <ellipse cx="700" cy="208" rx="110" ry="5" fill="#fbe7b0" opacity=".45"/>
+    </g>
+    <g class="hs-cloud-b">
+      <ellipse cx="1420" cy="150" rx="96" ry="6" fill="#fff" opacity=".28"/><ellipse cx="1370" cy="140" rx="54" ry="5" fill="#fff" opacity=".22"/>
+      <ellipse cx="820" cy="128" rx="84" ry="5" fill="#fff" opacity=".2"/><ellipse cx="330" cy="150" rx="120" ry="6" fill="#fff" opacity=".16"/>
+    </g>
+    <!-- goélands -->
+    <g class="hs-gulls" fill="none" stroke="#fdf8ec" stroke-width="1.8" stroke-linecap="round" opacity=".85">
+      <path d="M1300 150 q6 -7 12 0 q6 -7 12 0"/><path d="M1338 168 q4.5 -5 9 0 q4.5 -5 9 0"/><path d="M1278 174 q4 -4.5 8 0 q4 -4.5 8 0"/>
+    </g>
+    <!-- reliefs lointains -->
+    <path d="M0 262 L0 238 Q90 224 190 236 T380 241 Q470 233 560 250 L640 262 Z" fill="#0a6470" opacity=".6"/>
+    <path d="M1230 262 Q1330 242 1430 237 Q1520 231 1600 223 L1600 262 Z" fill="#0a5560" opacity=".75"/>
+    <!-- Corfou : cap, campanile, cyprès -->
+    <path d="M1325 262 Q1362 229 1420 215 Q1480 197 1540 201 Q1575 203 1600 193 L1600 262 Z" fill="#053b44"/>
+    <g fill="#042f37">
+      <ellipse cx="1404" cy="212" rx="4.5" ry="15"/><ellipse cx="1418" cy="206" rx="4.5" ry="17"/><ellipse cx="1452" cy="198" rx="4.5" ry="16"/>
+      <ellipse cx="1530" cy="192" rx="5" ry="18"/><ellipse cx="1546" cy="194" rx="4.5" ry="15"/><ellipse cx="1578" cy="190" rx="5" ry="17"/>
+    </g>
+    <rect x="1487" y="166" width="12" height="36" fill="#fbf2dd"/><path d="M1485 166 q8 -14 16 0 z" fill="#e0b128"/><rect x="1491" y="174" width="4" height="7" rx="2" fill="#045a63"/>
+    <rect x="1462" y="190" width="20" height="13" fill="#f3e9d2"/><rect x="1503" y="188" width="18" height="14" fill="#fbf2dd"/>
+    <rect x="1467" y="194" width="3" height="4" fill="#f2c445"/><rect x="1474" y="194" width="3" height="4" fill="#f2c445"/><rect x="1509" y="193" width="3" height="4" fill="#f2c445"/>
+    <!-- mer -->
+    <rect y="262" width="1600" height="138" fill="url(#hsSea)"/>
+    <rect y="261" width="1600" height="1.6" fill="#fff3cf" opacity=".55"/>
+    <g class="hs-shim" fill="#f6d06a">
+      <rect x="945" y="268" width="70" height="3" rx="1.5"/><rect x="932" y="278" width="96" height="3" rx="1.5"/><rect x="950" y="289" width="60" height="3.5" rx="1.75"/>
+      <rect x="925" y="301" width="110" height="3.5" rx="1.75"/><rect x="942" y="315" width="76" height="4" rx="2"/><rect x="918" y="331" width="124" height="4" rx="2"/>
+      <rect x="938" y="349" width="84" height="4.5" rx="2.25"/><rect x="914" y="369" width="132" height="5" rx="2.5"/>
+    </g>
+    <g fill="none" stroke="#c9eef0" stroke-linecap="round">
+      <line class="hs-wave" x1="-240" y1="286" x2="1840" y2="286" stroke-width="1.2" stroke-opacity=".28" stroke-dasharray="46 194"/>
+      <line class="hs-wave w2" x1="-240" y1="318" x2="1840" y2="318" stroke-width="1.5" stroke-opacity=".22" stroke-dasharray="70 170"/>
+      <line class="hs-wave w3" x1="-240" y1="356" x2="1840" y2="356" stroke-width="1.8" stroke-opacity=".18" stroke-dasharray="96 144"/>
+    </g>
+    <!-- Pontikonissi (l'îlot au bout de la piste) -->
+    <path d="M1088 263 Q1100 245 1125 239 Q1150 231 1172 241 Q1192 249 1202 263 Z" fill="#06414a"/>
+    <g fill="#04343c"><ellipse cx="1118" cy="234" rx="4.5" ry="14"/><ellipse cx="1130" cy="228" rx="4.5" ry="15"/><ellipse cx="1164" cy="231" rx="4.5" ry="14"/><ellipse cx="1177" cy="239" rx="4" ry="12"/></g>
+    <rect x="1139" y="227" width="13" height="10" fill="#fdf8ec"/><rect x="1152" y="221" width="5" height="16" fill="#fdf8ec"/><path d="M1151 221 q3.5 -6 7 0 z" fill="#e0b128"/>
+    <!-- voilier -->
+    <g class="hs-boat"><g class="hs-bob" transform="translate(860 268)">
+      <path d="M-16 0 L16 0 L11 6 L-11 6 Z" fill="#033f47"/><path d="M1 -2 L1 -32 L15 -2 Z" fill="#fdf8ec"/><path d="M-2 -4 L-2 -25 L-12 -4 Z" fill="#f3e3b4"/>
+    </g></g>
+    <!-- voile de lisibilité pour le texte -->
+    <rect class="hs-shade" width="1600" height="400" fill="url(#hsShade)"/>
+    <!-- avion en descente vers Corfou -->
+    <g class="hs-plane">
+      <rect x="-345" y="-2.5" width="285" height="3" rx="1.5" fill="url(#hsTrail)"/>
+      <path d="M6 -5 L-18 -24 L-8 -24 L22 -6 Z" fill="#cfdfe2"/>
+      <path d="M-48 -6 L-64 -30 L-52 -30 L-30 -7 Z" fill="#e0b128"/>
+      <path d="M-58 -1 C-58 -6 -44 -8 -24 -8 L34 -8 C50 -8 62 -3 64 1 C60 5 50 7 36 7 L-38 7 C-50 7 -58 4 -58 -1 Z" fill="#fdfaf1"/>
+      <path d="M-56 2 C-50 6 -44 7 -38 7 L36 7 C48 7 58 5 63 2 Z" fill="#d6e2e2"/>
+      <path d="M45 -5.5 L55 -3 L51 -1 L44 -2 Z" fill="#045a63"/>
+      <line x1="-34" y1="-2.5" x2="38" y2="-2.5" stroke="#045a63" stroke-width="1.6" stroke-dasharray="2 3.5" opacity=".8"/>
+      <path d="M-50 0 L-68 -5 L-66 1 L-48 4 Z" fill="#eef4f3"/>
+      <rect x="-6" y="9" width="19" height="7.5" rx="3.75" fill="#c4d6d9"/>
+      <path d="M10 2 L-26 30 L-12 30 L28 3 Z" fill="#eef4f3"/>
+      <circle class="hs-blink" cx="-20" cy="29" r="2.4" fill="#ffd76a"/>
+    </g>
+  </svg>
   <div class="overlay">
     <div class="brandline" data-i18n="brandline"></div>
     <h1 data-i18n="title"></h1>

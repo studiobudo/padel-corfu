@@ -26,3 +26,10 @@ Projet Vercel **distinct** de celui du site Padel Academy (même dépôt GitHub)
 Compagnies, fréquences et fins de saison : fiables. Jours, horaires et prix :
 **indicatifs** (saison 2026), à confirmer sur les moteurs des compagnies.
 Données modifiables dans les tableaux JS `FLIGHTS` / `MAP` et le dictionnaire `T`.
+
+## Page « Destination Corfou 2027 »
+`pro.html` : présentation de la destination pour les rendez-vous
+prospects (titre animé, infographies, carrousels d'activités, formats de groupe,
+agence, FAQ, contact). Servie par le même projet Vercel à l'adresse
+`/pro`, non indexée. Ressources dans `destination/`. Données dans
+`CONFIG`, textes FR / EN / GR dans `TRANSLATIONS`.

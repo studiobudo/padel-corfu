@@ -47,3 +47,10 @@ Guide des **vols directs vers Corfou (aéroport CFU, Ioannis Kapodistrias)** pou
 
 ## Règles de style avec l'owner
 Direct, créatif, efficace. Aller droit au but, proposer des options concrètes. Toujours signaler honnêtement le statut « indicatif » des données et les limites techniques (connecteurs, images Canva, etc.).
+
+## Mise à jour saison 2027 (relevé du 12/11/2026)
+- Le site affiche désormais la **saison 2027**. Chaque entrée de `FLIGHTS` porte un statut `st` : `ok` (programme 2027 publié), `part` (partiel ou une seule source), `np` (non publié). `ref26:true` signale que les jours/horaires affichés sont ceux de 2026, faute de mieux.
+- Champs de saison : `deb` (premier vol 2027) et `fin` (dernier vol, absent si non publié). Notes par liaison dans `note` (FR/EN/EL).
+- **Sources du relevé** : flightconnections.com, partir.com, aeroroutes.com (France, pages lues) ; extraits de moteur de recherche pour Belgique, Luxembourg et Suisse. **Aucun site de compagnie n'a été lu** : tout reste à confirmer.
+- Points ouverts : fins de saison CDG, Lyon, Bâle, Marseille, Toulouse ; jours 2027 de Charleroi, Bruxelles, Luxembourg, Genève ; maintien de TUI fly Bruxelles–Corfou. Nouveauté : Condor Zurich–Corfou dès le 2 juillet 2027.
+- Le pop-up d'entrée ne collecte plus d'e-mail (CTA Instagram @kerkyra_workplay). Le Hero est une scène SVG/CSS animée (classes `hs-*`).

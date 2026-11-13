@@ -59,4 +59,4 @@ Direct, créatif, efficace. Aller droit au but, proposer des options concrètes.
 
 ## Page « Destination Corfou 2027 » : transférée le 13/11/2026
 - Créée ici le 12/11/2026 (`pro.html`, ressources dans `destination/`), la page vit désormais dans le dépôt `studiobudo/kerkyra-pro`, où elle est l'accueil de **pro.kerkyra.fr**. Ses fichiers ont été supprimés de ce dépôt.
-- `vercel.json` redirige `vols.kerkyra.fr/pro` vers `https://pro.kerkyra.fr/`, pour les liens déjà partagés. Ligne à retirer quand elle ne sert plus.
+- La redirection de `vols.kerkyra.fr/pro` vers pro.kerkyra.fr a été retirée le 13/11/2026 à la demande de Micha : l'adresse `/pro` n'existe plus sur ce site.

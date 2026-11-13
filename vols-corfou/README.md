@@ -29,4 +29,4 @@ Données modifiables dans les tableaux JS `FLIGHTS` / `MAP` et le dictionnaire `
 
 ## Page « Destination Corfou 2027 »
 Transférée le 13/11/2026 dans le dépôt `studiobudo/kerkyra-pro` (accueil de
-pro.kerkyra.fr). L'adresse `/pro` de ce site y redirige.
+pro.kerkyra.fr). L'adresse `/pro` n'existe plus sur ce site.

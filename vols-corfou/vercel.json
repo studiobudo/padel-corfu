@@ -1,9 +1,6 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    { "source": "/pro", "destination": "https://pro.kerkyra.fr/", "permanent": false }
-  ],
   "headers": [
     {
       "source": "/(.*)",
